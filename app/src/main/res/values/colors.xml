@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="actionbar_title_text">#212121</color>
+    <color name="bottombar_background">#FFFFFF</color>
+    <color name="gray_background">#A3B3B3B3</color>
+    <color name="gray_button">#FFCCCCCC</color>
+    <color name="gray_dark">#808080</color>
+    <color name="white_background">#FFFFFF</color>
+    <color name="black_background">#161616</color>
+
+    <color name="whatowatch_black">#000000</color>
+    <color name="whatowatch_dark_dark_grey">#3C3C3C</color>
+    <color name="whatowatch_dark_grey">#717171</color>
+    <color name="whatowatch_grey">#FF777777</color>
+    <color name="whatowatch_light_grey">#FF979797</color>
+    <color name="whatowatch_even_light_grey">#FFCCCCCC</color>
+    <color name="whatowatch_pink">#FFF2A3FF</color>
+    <color name="whatowatch_white">#FFFFFF</color>
+    <color name="whatowatch_transparent_white">#88FFFFFF</color>
+    <color name="whatowatch_green">#FFAAD500</color>
+    <color name="whatowatch_green_transparent">#33AAD500</color>
+    <color name="whatowatch_dark_green">#82BE66</color>
+    <color name="whatowatch_even_darker_green">#FF5FAB04</color>
+    <color name="whatowatch_green_blue">#FF157A6E</color>
+    <color name="whatowatch_blue">#FF96C5FF</color>
+    <color name="whatowatch_red">#FF0000</color>
+    <color name="whatowatch_transparent_red">#33FF0000</color>
+    <color name="whatowatch_dark_light_red">#881313</color>
+    <color name="whatowatch_dark_red">#650F0F</color>
+    <color name="whatowatch_very_dark_red">#370909</color>
+    <color name="whatowatch_red_title">#FFF55E64</color>
+    <color name="whatowatch_orange">#FFFFB721</color>
+    <color name="whatowatch_transparent_orange">#33FFB721</color>
+    <color name="whatowatch_transparent_grey">#D55C4E4E</color>
+    <color name="whatowatch_spinner_grey">#FFF8F7F8</color>
+
+    <color name="spinnerBackground">#C35C4E4E</color>
+</resources>

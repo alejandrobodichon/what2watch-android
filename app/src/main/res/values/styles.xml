@@ -1,0 +1,65 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/black_background</item>
+        <item name="colorAccent">@color/whatowatch_grey</item>
+    </style>
+
+    <style name="full_width_button">
+        <item name="android:layout_height">45dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="MineCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="WhatToWatchButton">
+        <item name="font">@font/lato_regular</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/font_medium_extra</item>
+        <item name="android:minHeight">@dimen/spacing_big_extra</item>
+        <item name="android:layout_width">@dimen/margin_30</item>
+        <item name="android:gravity">center_horizontal</item>
+        <!-- This margin is added to provide enough space for the shadow -->
+        <item name="android:layout_marginBottom">@dimen/spacing_medium</item>
+        <item name="android:layout_marginLeft">@dimen/spacing_medium</item>
+        <item name="android:layout_marginRight">@dimen/spacing_small</item>
+        <item name="android:padding">@dimen/spacing_medium_extra</item>
+        <item name="android:background">@drawable/view_rounded_corners</item>
+        <item name="android:textColor">@color/white_background</item>
+    </style>
+
+    <style name="WhatToWatchInputText">
+        <item name="font">@font/lato_regular</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/font_medium_extra</item>
+        <item name="android:minHeight">@dimen/spacing_big_extra</item>
+        <item name="android:layout_width">@dimen/margin_30</item>
+        <item name="android:gravity">center_horizontal</item>
+        <!-- This margin is added to provide enough space for the shadow -->
+        <item name="android:layout_marginBottom">@dimen/spacing_medium</item>
+        <item name="android:layout_marginLeft">@dimen/spacing_medium</item>
+        <item name="android:layout_marginRight">@dimen/spacing_small</item>
+        <item name="android:padding">@dimen/spacing_medium_extra</item>
+        <item name="android:background">@drawable/view_rounded_corners_gray</item>
+        <item name="android:textColor">@color/white_background</item>
+    </style>
+
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/whatowatch_grey </item>
+        <item name="android:textSize">25sp</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/whatowatch_grey</item>
+        <item name="colorControlNormal">@color/whatowatch_grey</item>
+        <item name="colorControlActivated">@color/whatowatch_grey</item>
+    </style>
+
+</resources>

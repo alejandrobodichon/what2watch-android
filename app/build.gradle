@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
+    defaultConfig {
+        applicationId "com.example.whatowatch"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+buildscript {
+    ext.androidx_appcompat_version = '1.0.2'
+    ext.dagger_version = '2.22.1'
+    ext.robolectric_version = '4.2'
+    ext.androidx_core_version = '1.1.0-alpha03'
+    ext.androidx_appcompat_version = '1.0.2'
+    ext.androidx_recycler_version = '1.1.0-alpha01'
+    ext.androidx_constraintlayout_version = '2.0.0-alpha3'
+    ext.google_material_version = '1.0.0-beta01'
+    ext.square_logging_interceptor_version = '3.9.0'
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly 'com.google.code.findbugs:jsr305:3.0.1'
+
+
+    // Wolmo
+    implementation "com.github.Wolox:wolmo-core-android:4.0.0"
+    implementation "com.github.Wolox:wolmo-networking-android:4.0.0"
+    //implementation "com.github.wolox:wolmo-networking-android:dcaf22b16df56ba42434487aac2e63fed6868f59"
+
+    // Android support libraries
+    implementation "androidx.core:core:$androidx_core_version"
+    implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
+    implementation "androidx.recyclerview:recyclerview:$androidx_recycler_version"
+    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout_version"
+    implementation "com.google.android.material:material:$google_material_version"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    // Fresco
+    implementation 'com.facebook.fresco:fresco:1.12.1'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android.material:material:1.0.0'
+
+    // Okhttp
+    implementation "com.squareup.okhttp3:logging-interceptor:$square_logging_interceptor_version"
+
+    implementation 'com.readystatesoftware.chuck:library:1.1.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'jp.wasabeef:glide-transformations:4.0.0'
+}

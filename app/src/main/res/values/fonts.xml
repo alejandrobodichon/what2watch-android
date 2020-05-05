@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Lato Regular styles-->
+    <style name="LatoRegular" parent="@android:style/TextAppearance">
+        <item name="font">@font/lato_regular</item>
+    </style>
+
+    <style name="LatoRegular.Tiny">
+        <item name="android:textSize">@dimen/font_tiny</item>
+    </style>
+
+    <style name="LatoRegular.SmallExtra">
+        <item name="android:textSize">@dimen/font_small_extra</item>
+    </style>
+
+    <style name="LatoRegular.SmallExtra.DarkGrey">
+        <item name="android:textColor">@color/whatowatch_dark_grey</item>
+    </style>
+
+    <style name="LatoRegular.SmallMore.Black">
+        <item name="android:textColor">@color/whatowatch_black</item>
+    </style>
+
+    <style name="LatoRegular.SmallMore.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.SmallMore.DarkGrey">
+        <item name="android:textColor">@color/whatowatch_dark_grey</item>
+    </style>
+
+    <style name="LatoRegular.SmallMore.DarkGreen">
+        <item name="android:textColor">@color/whatowatch_even_darker_green</item>
+    </style>
+
+    <style name="LatoRegular.Small">
+        <item name="android:textSize">@dimen/font_small</item>
+    </style>
+
+    <style name="LatoRegular.SmallMore">
+        <item name="android:textSize">@dimen/font_small_more</item>
+    </style>
+
+    <style name="LatoRegular.Medium">
+        <item name="android:textSize">@dimen/font_medium</item>
+    </style>
+
+    <style name="LatoRegular.Medium.Black">
+        <item name="android:textColor">@color/whatowatch_black</item>
+    </style>
+
+    <style name="LatoRegular.Medium.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.Medium.DarkGreen">
+        <item name="android:textColor">@color/whatowatch_dark_green</item>
+    </style>
+
+    <style name="LatoRegular.Medium.Grey">
+        <item name="android:textColor">@color/whatowatch_grey</item>
+    </style>
+
+    <style name="LatoRegular.Medium.Grey.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.Medium.DarkGrey">
+        <item name="android:textColor">@color/whatowatch_dark_grey</item>
+    </style>
+
+    <style name="LatoRegular.Medium.DarkGrey.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.Medium.Red">
+        <item name="android:textColor">@color/whatowatch_red</item>
+    </style>
+
+    <style name="LatoRegular.MediumMore">
+        <item name="android:textSize">@dimen/font_medium_more</item>
+    </style>
+
+    <style name="LatoRegular.MediumMore.Black">
+        <item name="android:textColor">@color/whatowatch_black</item>
+    </style>
+
+    <style name="LatoRegular.MediumMore.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.MediumMore.DarkGreen">
+        <item name="android:textColor">@color/whatowatch_dark_green</item>
+    </style>
+
+    <style name="LatoRegular.MediumMore.Grey">
+        <item name="android:textColor">@color/whatowatch_grey</item>
+    </style>
+
+    <style name="LatoRegular.MediumMore.Grey.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.MediumMore.DarkGrey">
+        <item name="android:textColor">@color/whatowatch_dark_grey</item>
+    </style>
+
+    <style name="LatoRegular.MediumMore.DarkGrey.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra">
+        <item name="android:textSize">@dimen/font_medium_extra</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.Black">
+        <item name="android:textColor">@color/whatowatch_black</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.EvenDarkerGreen">
+        <item name="android:textColor">@color/whatowatch_even_darker_green</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.Green">
+        <item name="android:textColor">@color/whatowatch_green</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.DarkGreen">
+        <item name="android:textColor">@color/whatowatch_dark_green</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.DarkGreen.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.Grey">
+        <item name="android:textColor">@color/whatowatch_grey</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.Grey.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.DarkGrey">
+        <item name="android:textColor">@color/whatowatch_dark_grey</item>
+    </style>
+
+    <style name="LatoRegular.MediumExtra.DarkGrey.Italic">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="LatoRegular.Large">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="LatoRegular.Large.Black">
+        <item name="android:textColor">@color/whatowatch_black</item>
+    </style>
+
+    <style name="LatoRegular.Large.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.Large.DarkGreen">
+        <item name="android:textColor">@color/whatowatch_dark_green</item>
+    </style>
+
+    <style name="LatoRegular.Large.DarkGrey">
+        <item name="android:textColor">@color/whatowatch_dark_grey</item>
+    </style>
+
+    <style name="LatoRegular.Large.DarkGrey.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.Large.DarkGrey.Italic">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="LatoRegular.LargeExtra">
+        <item name="android:textSize">@dimen/font_large_extra</item>
+    </style>
+
+    <style name="LatoRegular.LargeExtra.Black">
+        <item name="android:textColor">@color/whatowatch_black</item>
+    </style>
+
+    <style name="LatoRegular.LargeExtra.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.LargeExtra.DarkGrey">
+        <item name="android:textColor">@color/whatowatch_dark_grey</item>
+    </style>
+
+    <style name="LatoRegular.Huge">
+        <item name="android:textSize">@dimen/font_huge</item>
+    </style>
+
+    <style name="LatoRegular.Huge.Black">
+        <item name="android:textColor">@color/whatowatch_black</item>
+    </style>
+
+    <style name="LatoRegular.Huge.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.Huge.DarkGrey">
+        <item name="android:textColor">@color/whatowatch_dark_grey</item>
+    </style>
+
+    <style name="LatoRegular.HugeMore">
+        <item name="android:textSize">26dp</item>
+    </style>
+
+    <style name="LatoRegular.HugeMore.Black">
+        <item name="android:textColor">@color/whatowatch_black</item>
+    </style>
+
+    <style name="LatoRegular.HugeMore.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="LatoRegular.Big">
+        <item name="android:textSize">@dimen/font_big</item>
+    </style>
+
+    <style name="LatoRegular.Big.Black">
+        <item name="android:textColor">@color/whatowatch_black</item>
+    </style>
+
+    <style name="LatoRegular.Big.Black.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

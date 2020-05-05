@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vLoginConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:foreground="@color/whatowatch_transparent_grey"/>
+
+    <LinearLayout
+        android:id="@+id/vLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="What To Watch?"
+            android:textColor="@color/gray_background"
+            android:textSize="@dimen/margin_30"
+            style="@style/LatoRegular.LargeExtra.Black.Bold"/>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/static_spacing_large"
+        app:layout_constraintTop_toBottomOf="@+id/vLayout"
+        app:layout_constraintBottom_toTopOf="@+id/llButton"
+        android:layout_marginLeft="@dimen/spacing_big_extra"
+        android:layout_marginRight="@dimen/spacing_big_extra">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/vLoginRutInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/view_rounded_corners_gray"
+            app:errorEnabled="true"
+            style="@style/TextLabel"
+            android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/vLoginRutInputEditText"
+                style="@style/LatoRegular.MediumMore"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/char_40"
+                android:background="@null"
+                android:hint="Nombre"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:singleLine="true"
+                android:textColor="@color/whatowatch_white"
+                android:textColorHint="@color/whatowatch_dark_light_red"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/char_20" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingBottom="@dimen/margin_30">
+
+        <Button
+            android:id="@+id/vLoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comenzar"
+            android:layout_marginTop="@dimen/static_spacing_large"
+            android:layout_marginLeft="@dimen/spacing_big"
+            android:layout_marginRight="@dimen/spacing_big"
+            android:layout_marginBottom="@dimen/spacing_large_extra"
+            app:layout_constraintTop_toBottomOf="@+id/vLoginPasswordInputLayout"
+            style="@style/WhatToWatchButton"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Need help?"
+            android:visibility="gone"
+            style="@style/LatoRegular.MediumMore.DarkGreen"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
