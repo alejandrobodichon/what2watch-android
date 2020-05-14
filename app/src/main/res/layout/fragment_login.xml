@@ -48,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/view_rounded_corners_gray"
+            android:paddingTop="@dimen/margin_8"
             app:errorEnabled="true"
             style="@style/TextLabel"
             android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
@@ -68,10 +69,6 @@
                 android:textSize="@dimen/char_20" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,7 +8,6 @@ import com.example.whatowatch.R
 import com.example.whatowatch.ui.main.login.LoginFragment
 import com.example.whatowatch.utils.SharedPreferencesUtils
 import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
 import javax.inject.Inject
 
 
@@ -48,5 +47,14 @@ class MainActivity : WolmoActivity() {
 
     fun showSnackBar(parent: View, message: String) {
         Snackbar.make(parent, message, Snackbar.LENGTH_LONG).show()
+    }
+
+    fun backToFragmentPosition(_iPosition: Int) {
+        val entry = supportFragmentManager.getBackStackEntryAt(_iPosition)
+        supportFragmentManager.popBackStack(
+            entry.id,
+            FragmentManager.POP_BACK_STACK_INCLUSIVE
+        )
+        supportFragmentManager.executePendingTransactions()
     }
 }

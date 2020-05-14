@@ -2,8 +2,10 @@ package com.example.whatowatch.di
 
 
 import com.example.whatowatch.ui.main.MainActivity
+import com.example.whatowatch.ui.main.contentselection.ContentSelectionFragment
 import com.example.whatowatch.ui.main.login.LoginFragment
 import com.example.whatowatch.ui.main.genreselection.GenreSelectionFragment
+import com.example.whatowatch.ui.main.recomendationdetail.RecomendationDetailFragment
 import com.example.whatowatch.ui.root.RootActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -23,6 +25,12 @@ abstract class AppModule {
 
     @ContributesAndroidInjector
     internal abstract fun cityForecastFragment(): LoginFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun recomendationDetailFragment(): RecomendationDetailFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun contentSelectionFragment(): ContentSelectionFragment
 
 
 }

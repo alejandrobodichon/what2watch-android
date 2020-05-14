@@ -1,4 +1,4 @@
-package com.example.whatowatch.ui.main.genreselection
+package com.example.whatowatch.ui.main.contentselection
 
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -9,6 +9,7 @@ import com.example.whatowatch.model.GenreModel
 import com.example.whatowatch.shareable.GenreAdapter
 import com.example.whatowatch.ui.main.MainActivity
 import com.example.whatowatch.ui.main.cityselection.GenreSelectionPresenter
+import com.example.whatowatch.ui.main.genreselection.GenreSelectionFragment
 import com.example.whatowatch.ui.main.recomendationdetail.RecomendationDetailFragment
 import com.example.whatowatch.utils.SharedPreferencesUtils
 import kotlinx.android.synthetic.main.genre_selection_fragment.*
@@ -16,7 +17,7 @@ import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
 
 
-class GenreSelectionFragment @Inject constructor(): WolmoFragment<GenreSelectionPresenter>(), IGenreSelectionView {
+class ContentSelectionFragment @Inject constructor(): WolmoFragment<GenreSelectionPresenter>(), IContentSelectionView {
 
     @Inject internal lateinit var sharedPreferencesUtils: SharedPreferencesUtils
     @Inject internal lateinit var toastFactory: ToastFactory
@@ -24,16 +25,18 @@ class GenreSelectionFragment @Inject constructor(): WolmoFragment<GenreSelection
     override fun layout(): Int = R.layout.genre_selection_fragment
 
     override fun init() {
-        val genreItems = listOf(GenreModel("Drama"),GenreModel("Ciencia ficción"),GenreModel("Comedia"),GenreModel("Romance"),GenreModel("Thriller"),GenreModel("Acción"),GenreModel("Horror"),GenreModel("Fantasía"))
+        val genreItems = listOf(GenreModel("Series"),GenreModel("Peliculas"))
         rvGenreSelection.layoutManager = LinearLayoutManager(requireContext())
         rvGenreSelection.adapter = GenreAdapter(requireContext()).also {
             it.submitList(genreItems)
         }
 
         btContinue.setOnClickListener {
-            (requireActivity()as MainActivity).replaceFragment( RecomendationDetailFragment(),R.id.vBaseContent,true,
-                "Recomendación",false)
+            (requireActivity()as MainActivity).replaceFragment( GenreSelectionFragment(),R.id.vBaseContent,true,
+                "Género",false)
         }
+
+        btContinue.text = "Continuar"
 
     }
 

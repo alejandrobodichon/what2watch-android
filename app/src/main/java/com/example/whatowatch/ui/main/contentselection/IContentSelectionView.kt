@@ -1,9 +1,9 @@
-package com.example.whatowatch.ui.main.genreselection
+package com.example.whatowatch.ui.main.contentselection
 
 import com.example.whatowatch.model.RecomendationModel
 
 
-interface IGenreSelectionView {
+interface IContentSelectionView {
 
     fun showError(message: String)
     fun hideProgressBar()

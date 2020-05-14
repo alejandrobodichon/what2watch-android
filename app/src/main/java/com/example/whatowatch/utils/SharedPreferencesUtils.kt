@@ -24,16 +24,16 @@ class SharedPreferencesUtils @Inject constructor(
 //            sharedPreferencesManager.store(KEY_CITY, gson.toJson(cityList))
 //        }
 //
-//    var cityModel1: CityModel?
-//        get() {
-//            val fieldJson = sharedPreferencesManager[KEY_CITY_1, null]
-//            val cityModelType = object : TypeToken<CityModel>() {}.type
-//            return gson.fromJson(fieldJson,cityModelType)
-//        }
-//        set(cityModel1) {
-//            sharedPreferencesManager.store(KEY_CITY_1, gson.toJson(cityModel1))
-//        }
-//
+    var name: String?
+        get() {
+            val fieldJson = sharedPreferencesManager[NAME, null]
+            val stringType = object : TypeToken<String>() {}.type
+            return gson.fromJson(fieldJson,stringType)
+        }
+        set(name) {
+            sharedPreferencesManager.store(NAME, gson.toJson(name))
+        }
+
 //    var cityModel2: CityModel?
 //        get() {
 //            val fieldJson = sharedPreferencesManager[KEY_CITY_2, null]
@@ -75,6 +75,7 @@ class SharedPreferencesUtils @Inject constructor(
 //        }
 
     companion object {
+        private const val NAME = "name"
         private const val KEY_CITY = "key_city"
         private const val KEY_CITY_1 = "key_city_1"
         private const val KEY_CITY_2 = "key_city_2"
