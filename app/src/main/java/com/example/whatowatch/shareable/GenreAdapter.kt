@@ -31,8 +31,14 @@ class GenreAdapter(context: Context) :
             holder.clItem.background = localContext.getDrawable(R.drawable.gradient_background)
         } else {
             holder.rb.isChecked = false
-            holder.clItem.setBackgroundColor(localContext.getColor(R.color.whatowatch_very_dark_red))
+            holder.clItem.setBackgroundColor(localContext.getColor(R.color.whatowatch_transparent))
         }
+    }
+    fun getChecked(): String?{
+        return if(rowIndex != -1)
+            getItem(rowIndex).name
+        else
+            null
     }
 }
 

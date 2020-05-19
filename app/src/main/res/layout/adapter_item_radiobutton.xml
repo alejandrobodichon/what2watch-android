@@ -6,7 +6,6 @@
     android:id="@+id/clItem"
     android:layout_width="match_parent"
     android:layout_height="90dp"
-    android:background="@color/whatowatch_very_dark_red"
     android:paddingHorizontal="@dimen/spacing_large">
 
     <TextView
@@ -17,7 +16,8 @@
         android:paddingBottom="@dimen/spacing_medium_more"
         android:paddingHorizontal="@dimen/spacing_medium_more"
         android:textSize="25sp"
-        android:textColor="@color/whatowatch_dark_light_red"
+        android:textAllCaps="true"
+        android:textColor="@color/white_background"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:text="Drama"
@@ -34,6 +34,12 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
     </RadioButton>
+    <View
+        android:id="@+id/vLine"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/whatowatch_blue_transparent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

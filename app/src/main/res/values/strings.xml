@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">whatowatch</string>
     <string name="loading">Loading...</string>
-    <string name="detail_year">Año: %s</string>
-    <string name="detail_genre">Género: %s</string>
-    <string name="detail_main_cast">Reparto principal: %s</string>
+    <string name="detail_year">Year: %s</string>
+    <string name="detail_genre">Genre: %s</string>
+    <string name="detail_main_cast">Main cast: %s</string>
     <string name="detail_director">Director: %s</string>
 
 

@@ -1,4 +1,4 @@
-package com.example.whatowatch.ui.main.cityselection
+package com.example.whatowatch.ui.main.genreselection
 
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices

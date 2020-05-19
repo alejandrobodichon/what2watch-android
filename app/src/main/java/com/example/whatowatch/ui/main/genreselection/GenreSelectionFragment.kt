@@ -1,59 +1,86 @@
 package com.example.whatowatch.ui.main.genreselection
 
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import ar.com.wolox.wolmo.core.util.ToastFactory
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.whatowatch.R
 import com.example.whatowatch.model.GenreModel
 import com.example.whatowatch.shareable.GenreAdapter
+import com.example.whatowatch.shareable.WhatToWhatchFragment
 import com.example.whatowatch.ui.main.MainActivity
-import com.example.whatowatch.ui.main.cityselection.GenreSelectionPresenter
 import com.example.whatowatch.ui.main.recomendationdetail.RecomendationDetailFragment
 import com.example.whatowatch.utils.SharedPreferencesUtils
+import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.genre_selection_fragment.*
 import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
 
 
-class GenreSelectionFragment @Inject constructor(): WolmoFragment<GenreSelectionPresenter>(), IGenreSelectionView {
+class GenreSelectionFragment @Inject constructor(val content: String) :
+    WhatToWhatchFragment<GenreSelectionPresenter>(), IGenreSelectionView {
 
-    @Inject internal lateinit var sharedPreferencesUtils: SharedPreferencesUtils
-    @Inject internal lateinit var toastFactory: ToastFactory
 
     override fun layout(): Int = R.layout.genre_selection_fragment
 
     override fun init() {
-        val genreItems = listOf(GenreModel("Drama"),GenreModel("Ciencia ficción"),GenreModel("Comedia"),GenreModel("Romance"),GenreModel("Thriller"),GenreModel("Acción"),GenreModel("Horror"),GenreModel("Fantasía"))
+        setToolbarData(
+            ContextCompat.getDrawable(requireContext(), R.drawable.ic_hamburger),
+            "Genre"
+        )
+
+        Glide.with(requireContext()).load(R.mipmap.astrowalk)
+            .apply(RequestOptions.bitmapTransform(BlurTransformation(22)))
+            .into(requireView().findViewById(R.id.ivBackground))
+
+        val genreItems = listOf(
+            GenreModel("drama"),
+            GenreModel("scifi"),
+            GenreModel("comedy"),
+            GenreModel("romance"),
+            GenreModel("thriller"),
+            GenreModel("action"),
+            GenreModel("horror"),
+            GenreModel("fantasy")
+        )
         rvGenreSelection.layoutManager = LinearLayoutManager(requireContext())
         rvGenreSelection.adapter = GenreAdapter(requireContext()).also {
             it.submitList(genreItems)
         }
 
         btContinue.setOnClickListener {
-            (requireActivity()as MainActivity).replaceFragment( RecomendationDetailFragment(),R.id.vBaseContent,true,
-                "Recomendación",false)
+            (rvGenreSelection.adapter as GenreAdapter).getChecked()?.let {
+                (requireActivity() as MainActivity).replaceFragment(
+                    RecomendationDetailFragment(content,it), R.id.vBaseContent, true,
+                    "Recommend", false
+                )
+            } ?: run {
+                showError("You must choose one option.")
+            }
+
         }
 
     }
 
 
     override fun showError(message: String) {
-        (requireActivity() as MainActivity).showSnackBar(view!!.rootView,message)
+        showSnackBar(message)
     }
 
-    override fun hideProgressBar(){
+    override fun hideProgressBar() {
         clProgressBar.visibility = View.GONE
     }
 
-    override fun showProgressBar(){
+    override fun showProgressBar() {
         clProgressBar.visibility = View.VISIBLE
     }
 
-    companion object{
+    companion object {
 
     }
-
 
 
 }

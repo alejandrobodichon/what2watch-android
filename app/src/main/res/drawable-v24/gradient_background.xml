@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape>
-            <gradient android:startColor="@color/whatowatch_very_dark_red"
-            android:endColor="@color/whatowatch_dark_red"
+            <gradient android:startColor="@color/whatowatch_dark_blue_transparent"
+            android:endColor="@color/whatowatch_blue_transparent"
             android:angle="0"/>
         </shape>
     </item>

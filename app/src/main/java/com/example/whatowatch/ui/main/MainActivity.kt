@@ -45,9 +45,7 @@ class MainActivity : WolmoActivity() {
 
     }
 
-    fun showSnackBar(parent: View, message: String) {
-        Snackbar.make(parent, message, Snackbar.LENGTH_LONG).show()
-    }
+
 
     fun backToFragmentPosition(_iPosition: Int) {
         val entry = supportFragmentManager.getBackStackEntryAt(_iPosition)

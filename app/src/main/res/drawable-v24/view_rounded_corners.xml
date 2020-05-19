@@ -4,7 +4,7 @@
     <item android:state_enabled="false">
         <shape android:shape="rectangle">
             <corners android:radius="10dp"/>
-            <solid android:color="#0f79af"/>
+            <solid android:color="@color/whatowatch_blue_button"/>
         </shape>
     </item>
 

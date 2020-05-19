@@ -10,6 +10,14 @@
     tools:context=".ui.main.MainActivity"
     >
 
+   <ImageView
+       android:id="@+id/ivBackground"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:adjustViewBounds="true"
+       android:scaleType="fitXY"
+       android:foreground="@color/whatowatch_transparent_grey"/>
+
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/rvGenreSelection"
        android:layout_width="match_parent"
@@ -25,7 +33,7 @@
        android:id="@+id/btContinue"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:text="Recomendar"
+       android:text="Recommend"
        android:layout_marginTop="@dimen/static_spacing_large"
        android:layout_marginLeft="@dimen/spacing_big"
        android:layout_marginRight="@dimen/spacing_big"
