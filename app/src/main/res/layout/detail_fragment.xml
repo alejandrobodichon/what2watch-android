@@ -44,7 +44,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_8"
                             android:textColor="@color/whatowatch_white"
-                            android:text="Titulo"
                             android:textSize="@dimen/char_40"
                             app:layout_constraintTop_toBottomOf="@id/ivImage" />
 
@@ -64,7 +63,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
-                            android:text="Descripcion"
                             android:textColor="@color/whatowatch_white"
                             app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
@@ -81,7 +79,6 @@
                                 android:layout_marginStart="@dimen/margin_8"
                                 android:layout_marginTop="@dimen/margin_8"
                                 android:layout_weight="0.5"
-                                android:text="Año: 1988"
                                 android:textColor="@color/whatowatch_white" />
 
                             <TextView
@@ -91,7 +88,6 @@
                                 android:layout_marginStart="@dimen/margin_8"
                                 android:layout_marginTop="@dimen/margin_8"
                                 android:layout_weight="0.5"
-                                android:text="Genero: Drama"
                                 android:textColor="@color/whatowatch_white" />
                         </LinearLayout>
 
@@ -102,7 +98,6 @@
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
                             android:textColor="@color/whatowatch_white"
-                            android:text="Reparto principal: "
                             app:layout_constraintTop_toBottomOf="@id/llYearGenre" />
 
                         <TextView
@@ -112,7 +107,6 @@
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
                             android:textColor="@color/whatowatch_white"
-                            android:text="Director: "
                             app:layout_constraintTop_toBottomOf="@id/tvMainCast" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -136,7 +130,7 @@
                     android:layout_marginEnd="14dp"
                     android:layout_marginBottom="@dimen/spacing_large_extra"
                     android:layout_weight="0.5"
-                    android:text="¡Otra!"
+                    android:text="Other!"
                     app:layout_constraintEnd_toStartOf="@id/btRestart"
                     app:layout_constraintStart_toStartOf="parent" />
 
@@ -150,7 +144,7 @@
                     android:layout_marginEnd="@dimen/spacing_big"
                     android:layout_marginBottom="@dimen/spacing_large_extra"
                     android:layout_weight="0.5"
-                    android:text="Reiniciar" />
+                    android:text="Restart" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

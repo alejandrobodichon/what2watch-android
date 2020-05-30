@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vLoginConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:foreground="@color/whatowatch_transparent_grey"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/llRegister"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilName"
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/view_rounded_corners_gray"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietName"
+                    style="@style/LatoRegular.MediumMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Name"
+                    android:maxLines="1"
+                    android:paddingStart="10dp"
+                    android:paddingTop="@dimen/margin_2"
+                    android:singleLine="true"
+                    android:textColor="@color/whatowatch_white"
+                    android:textColorHint="@color/whatowatch_dark_light_red"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilLastName"
+                style="@style/TextLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/view_rounded_corners_gray"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietLastName"
+                    style="@style/LatoRegular.MediumMore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="bottom"
+                    android:hint="Last name"
+                    android:maxLines="1"
+                    android:paddingStart="10dp"
+                    android:paddingTop="@dimen/margin_2"
+                    android:singleLine="true"
+                    android:textColor="@color/whatowatch_white"
+                    android:textColorHint="@color/whatowatch_dark_light_red"
+                    android:textCursorDrawable="@null"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiBirthday"
+            style="@style/TextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:background="@drawable/view_rounded_corners_gray"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietBirthday"
+                style="@style/LatoRegular.MediumMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="bottom"
+                android:hint="Birthday"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingTop="@dimen/margin_2"
+                android:singleLine="true"
+                android:textColor="@color/whatowatch_white"
+                android:textColorHint="@color/whatowatch_dark_light_red"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiEmail"
+            style="@style/TextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:background="@drawable/view_rounded_corners_gray"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietEmail"
+                style="@style/LatoRegular.MediumMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="bottom"
+                android:hint="E-mail"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingTop="@dimen/margin_2"
+                android:singleLine="true"
+                android:textColor="@color/whatowatch_white"
+                android:textColorHint="@color/whatowatch_dark_light_red"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiUserName"
+            style="@style/TextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:background="@drawable/view_rounded_corners_gray"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietUserName"
+                style="@style/LatoRegular.MediumMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="bottom"
+                android:hint="User name"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingTop="@dimen/margin_2"
+                android:singleLine="true"
+                android:textColor="@color/whatowatch_white"
+                android:textColorHint="@color/whatowatch_dark_light_red"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiPassword"
+            style="@style/TextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:background="@drawable/view_rounded_corners_gray"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietPassword"
+                style="@style/LatoRegular.MediumMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="bottom"
+                android:hint="Password"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingTop="@dimen/margin_2"
+                android:singleLine="true"
+                android:textColor="@color/whatowatch_white"
+                android:textColorHint="@color/whatowatch_dark_light_red"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tiRepeatPassword"
+            style="@style/TextLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:background="@drawable/view_rounded_corners_gray"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietRepeatPassword"
+                style="@style/LatoRegular.MediumMore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="bottom"
+                android:hint="Repeat password"
+                android:maxLines="1"
+                android:paddingStart="10dp"
+                android:paddingTop="@dimen/margin_2"
+                android:singleLine="true"
+                android:textColor="@color/whatowatch_white"
+                android:textColorHint="@color/whatowatch_dark_light_red"
+                android:textCursorDrawable="@null"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/seekBar1"
+                android:layout_width="300dp"
+                android:layout_height="8dp"
+                android:layout_marginTop="@dimen/margin_20"
+                android:max="10"
+                android:progress="4"
+                android:progressTint="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/tvNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_30"
+            android:layout_marginStart="@dimen/margin_20"
+            android:buttonTint="@color/colorAccent"
+            android:text="Accept terms and conditions"
+            android:textColor="@color/white_background" />
+
+        <Button
+            android:id="@+id/vLoginButton"
+            style="@style/WhatToWatchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_big"
+            android:layout_marginTop="@dimen/static_spacing_large"
+            android:layout_marginRight="@dimen/spacing_big"
+            android:layout_marginBottom="@dimen/spacing_large_extra"
+            android:text="Register"
+            app:layout_constraintTop_toBottomOf="@+id/vLoginPasswordInputLayout" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

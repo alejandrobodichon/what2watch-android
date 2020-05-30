@@ -38,13 +38,12 @@ class GenreSelectionFragment @Inject constructor(val content: String) :
 
         val genreItems = listOf(
             GenreModel("drama"),
-            GenreModel("scifi"),
+            GenreModel("suspense"),
             GenreModel("comedy"),
             GenreModel("romance"),
-            GenreModel("thriller"),
             GenreModel("action"),
             GenreModel("horror"),
-            GenreModel("fantasy")
+            GenreModel("animation")
         )
         rvGenreSelection.layoutManager = LinearLayoutManager(requireContext())
         rvGenreSelection.adapter = GenreAdapter(requireContext()).also {

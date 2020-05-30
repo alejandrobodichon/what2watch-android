@@ -8,6 +8,8 @@ import com.example.whatowatch.R
 import com.example.whatowatch.ui.main.login.LoginFragment
 import com.example.whatowatch.utils.SharedPreferencesUtils
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
 
 
@@ -45,6 +47,17 @@ class MainActivity : WolmoActivity() {
 
     }
 
+    fun hideToolbar(){
+        vToolbar.visibility = View.GONE
+    }
+
+    fun showProgressBar() {
+        clProgressBar.visibility = View.VISIBLE
+    }
+
+    fun hideProgressBar() {
+        clProgressBar.visibility = View.GONE
+    }
 
 
     fun backToFragmentPosition(_iPosition: Int) {

@@ -1,22 +1,22 @@
 package com.example.whatowatch.shareable
 
 import android.content.Context
-import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
-import androidx.appcompat.content.res.AppCompatResources
+
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.core.util.ToastFactory
+import com.example.whatowatch.ui.main.MainActivity
 import com.example.whatowatch.utils.SharedPreferencesUtils
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
 
-abstract class WhatToWhatchFragment<T : BasePresenter<*>> : WolmoFragment<T>() {
+abstract class WhatToWhatchFragment<T : BasePresenter<*>> : WolmoFragment<T>(), IWhatToWhatchView {
 
     @Inject internal lateinit var sharedPreferencesUtils: SharedPreferencesUtils
     @Inject internal lateinit var toastFactory: ToastFactory
@@ -51,16 +51,19 @@ abstract class WhatToWhatchFragment<T : BasePresenter<*>> : WolmoFragment<T>() {
         imm.hideSoftInputFromWindow(requireView().windowToken, 0)
     }
 
-//    override fun showLoading() {
-//        requireActivity().window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-//                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-//        requireActivity().vProgressBar.visibility = View.VISIBLE
-//    }
-//
-//    override fun hideLoading() {
-//        requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
-//        requireActivity().vProgressBar.visibility = View.GONE
-//    }
+
+
+    override fun showError(message: String) {
+        showSnackBar(message)
+    }
+
+    override fun hideProgressBar(){
+        (requireActivity() as MainActivity).hideProgressBar()
+    }
+
+    override fun showProgressBar(){
+        (requireActivity() as MainActivity).showProgressBar()
+    }
 
     companion object {
         private const val HORIZONTAL_MARGIN = 5

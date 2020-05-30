@@ -22,11 +22,13 @@
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:src="@drawable/ic_palomitas_de_maiz"
+            android:text="What To Watch?"
+            android:textColor="@color/gray_background"
+            android:textSize="@dimen/margin_30"
             style="@style/LatoRegular.LargeExtra.Black.Bold"/>
 
     </LinearLayout>
@@ -42,56 +44,26 @@
         android:layout_marginRight="@dimen/spacing_big_extra">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/vLoginUserInputLayout"
+            android:id="@+id/vLoginRutInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/view_rounded_corners_gray"
             android:paddingTop="@dimen/margin_8"
             app:errorEnabled="true"
             style="@style/TextLabel"
-            app:layout_constraintTop_toTopOf="parent"
             android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/vLoginUserInputEditText"
+                android:id="@+id/tietName"
                 style="@style/LatoRegular.MediumMore"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/char_40"
                 android:background="@null"
-                android:hint="User"
+                android:hint="Name"
                 android:maxLines="1"
                 android:paddingStart="10dp"
                 android:singleLine="true"
-                android:textColor="@color/whatowatch_white"
-                android:textColorHint="@color/whatowatch_dark_light_red"
-                android:textCursorDrawable="@null"
-                android:textSize="@dimen/char_20" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/vLoginPassInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/view_rounded_corners_gray"
-            android:paddingTop="@dimen/margin_8"
-            android:layout_marginTop="@dimen/margin_20"
-            app:errorEnabled="true"
-            app:layout_constraintTop_toBottomOf="@+id/vLoginUserInputLayout"
-            style="@style/TextLabel"
-            android:theme="@style/Widget.MaterialComponents.TextInputLayout.FilledBox">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/vLoginpassInputEditText"
-                style="@style/LatoRegular.MediumMore"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/char_40"
-                android:background="@null"
-                android:hint="Password"
-                android:maxLines="1"
-                android:inputType="textPassword"
-                android:paddingStart="10dp"
-                android:singleLine="true"
+                android:layout_marginBottom="-5dp"
                 android:textColor="@color/whatowatch_white"
                 android:textColorHint="@color/whatowatch_dark_light_red"
                 android:textCursorDrawable="@null"
@@ -107,40 +79,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:paddingBottom="@dimen/margin_20">
+        android:paddingBottom="@dimen/margin_30">
 
         <Button
-            android:id="@+id/vLoginButton"
+            android:id="@+id/btStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log in"
-            android:layout_marginLeft="@dimen/spacing_big"
-            android:layout_marginRight="@dimen/spacing_big"
-            app:layout_constraintTop_toBottomOf="@+id/vLoginPasswordInputLayout"
-            style="@style/WhatToWatchButton"/>
-        <Button
-            android:id="@+id/vRegisterButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Register"
-            android:layout_marginTop="@dimen/static_spacing_large"
-            android:layout_marginLeft="@dimen/spacing_big"
-            android:layout_marginRight="@dimen/spacing_big"
-            app:layout_constraintTop_toBottomOf="@+id/vLoginPasswordInputLayout"
-            style="@style/WhatToWatchButton"/>
-        <Button
-            android:id="@+id/vGuestButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Guest"
+            android:text="Start"
             android:layout_marginTop="@dimen/static_spacing_large"
             android:layout_marginLeft="@dimen/spacing_big"
             android:layout_marginRight="@dimen/spacing_big"
             android:layout_marginBottom="@dimen/spacing_large_extra"
             app:layout_constraintTop_toBottomOf="@+id/vLoginPasswordInputLayout"
-            style="@style/WhatToWatchSecondaryButton"/>
+            style="@style/WhatToWatchButton"/>
 
-
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Need help?"
+            android:visibility="gone"
+            style="@style/LatoRegular.MediumMore.DarkGreen"/>
 
     </LinearLayout>
 

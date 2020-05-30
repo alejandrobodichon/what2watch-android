@@ -75,23 +75,40 @@ class RecomendationDetailFragment @Inject constructor(val content: String, val g
                 setSpan(
                     StyleSpan(Typeface.BOLD),
                     7,
-                    7 + recomendationModel.genre.length,
+                    7 + recomendationModel.genre?.length,
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
-        tvMainCast.text = SpannableString(
-            getString(
-                R.string.detail_main_cast,
-                recomendationModel.mainCast
-            )
-        ).apply {
-            setSpan(
-                StyleSpan(Typeface.BOLD),
-                11,
-                11 + recomendationModel.mainCast.length,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
+        recomendationModel.mainCast?.let{
+            tvMainCast.text = SpannableString(
+                getString(
+                    R.string.detail_main_cast,
+                    recomendationModel.mainCast
+                )
+            ).apply {
+                setSpan(
+                    StyleSpan(Typeface.BOLD),
+                    11,
+                    11 + recomendationModel.mainCast?.length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
+        } ?: run{
+            tvMainCast.text = SpannableString(
+                getString(
+                    R.string.detail_main_cast,
+                    "N/A"
+                )
+            ).apply {
+                setSpan(
+                    StyleSpan(Typeface.BOLD),
+                    11,
+                    11 + "N/A".length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+            }
         }
+
         tvDirector.text = SpannableString(
             getString(
                 R.string.detail_director,
@@ -101,7 +118,7 @@ class RecomendationDetailFragment @Inject constructor(val content: String, val g
             setSpan(
                 StyleSpan(Typeface.BOLD),
                 10,
-                10 + recomendationModel.director.length,
+                10 + recomendationModel.director?.length,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
         }

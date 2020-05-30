@@ -5,6 +5,7 @@ interface ILoginView {
 
     fun showError(message: String)
     fun hideProgressBar()
+    fun loginSuccessful()
 
     fun showProgressBar()
 }
