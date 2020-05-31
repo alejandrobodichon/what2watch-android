@@ -7,6 +7,8 @@ import com.example.whatowatch.R
 import com.example.whatowatch.shareable.WhatToWhatchFragment
 import com.example.whatowatch.ui.main.MainActivity
 import com.example.whatowatch.ui.main.cityselection.LoginPresenter
+import com.example.whatowatch.ui.main.contentselection.ContentSelectionFragment
+import com.example.whatowatch.ui.main.emotions.EmotionsFragment
 import com.example.whatowatch.ui.main.guest.GuestFragment
 import com.example.whatowatch.ui.main.profileregister.ProfileRegisterFragment
 import com.example.whatowatch.ui.main.register.RegisterFragment
@@ -59,6 +61,7 @@ class LoginFragment @Inject constructor() : WhatToWhatchFragment<LoginPresenter>
     override fun onResume() {
         super.onResume()
         vLoginUserInputEditText.text?.clear()
+        vLoginpassInputEditText.text?.clear()
     }
 
     override fun showError(message: String) {
@@ -68,7 +71,8 @@ class LoginFragment @Inject constructor() : WhatToWhatchFragment<LoginPresenter>
     override fun loginSuccessful() {
         sharedPreferencesUtils.name = vLoginUserInputEditText.text.toString()
             (requireActivity() as MainActivity).replaceFragment(
-                ProfileRegisterFragment(), R.id.vBaseContent, true,
+                ContentSelectionFragment(true), R.id.vBaseContent, true,
+                //ProfileRegisterFragment(), R.id.vBaseContent, true,
                 "Content", false
             )
     }

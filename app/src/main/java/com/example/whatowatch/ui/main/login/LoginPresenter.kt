@@ -4,7 +4,6 @@ import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
 import com.example.geopagos.network.callback.AuthCallback
 import com.example.whatowatch.model.RecomendationModel
-import com.example.whatowatch.network.services.GetRecommendations
 import com.example.whatowatch.network.services.GetUser
 import com.example.whatowatch.ui.main.login.ILoginView
 import com.example.whatowatch.utils.SharedPreferencesUtils

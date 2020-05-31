@@ -1,4 +1,4 @@
-package com.example.whatowatch.ui.main.profileregister
+package com.example.whatowatch.ui.main.emotions
 
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
@@ -10,7 +10,7 @@ import okhttp3.ResponseBody
 
 import javax.inject.Inject
 
-class ProfileRegisterPresenter @Inject constructor(private val retrofitServices: RetrofitServices) : BasePresenter<ILoginView>() {
+class EmotionsPresenter @Inject constructor(private val retrofitServices: RetrofitServices) : BasePresenter<ILoginView>() {
     @Inject
     internal lateinit var sharedPreferencesUtils: SharedPreferencesUtils
 

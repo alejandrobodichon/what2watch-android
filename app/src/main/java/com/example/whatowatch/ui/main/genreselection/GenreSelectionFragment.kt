@@ -53,7 +53,7 @@ class GenreSelectionFragment @Inject constructor(val content: String) :
         btContinue.setOnClickListener {
             (rvGenreSelection.adapter as GenreAdapter).getChecked()?.let {
                 (requireActivity() as MainActivity).replaceFragment(
-                    RecomendationDetailFragment(content,it), R.id.vBaseContent, true,
+                    RecomendationDetailFragment(content,it,null), R.id.vBaseContent, true,
                     "Recommend", false
                 )
             } ?: run {

@@ -3,6 +3,7 @@ package com.example.whatowatch.di
 
 import com.example.whatowatch.ui.main.MainActivity
 import com.example.whatowatch.ui.main.contentselection.ContentSelectionFragment
+import com.example.whatowatch.ui.main.emotions.EmotionsFragment
 import com.example.whatowatch.ui.main.login.LoginFragment
 import com.example.whatowatch.ui.main.genreselection.GenreSelectionFragment
 import com.example.whatowatch.ui.main.guest.GuestFragment
@@ -43,6 +44,9 @@ abstract class AppModule {
 
     @ContributesAndroidInjector
     internal abstract fun profileRegisterFragment(): ProfileRegisterFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun emotionsFragment(): EmotionsFragment
 
 
 }

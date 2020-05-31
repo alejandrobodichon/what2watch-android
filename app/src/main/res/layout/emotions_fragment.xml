@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vLoginConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:foreground="@color/whatowatch_transparent_grey"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/llRegister"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select your emotions"
+            android:textSize="25sp"
+            android:textColor="@color/white_background"
+            android:layout_marginStart="@dimen/margin_8"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/char_40"
+            android:layout_marginTop="@dimen/margin_8"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvAnger"
+                android:layout_width="@dimen/margin_100"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:text="Anger"
+
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SeekBar
+                android:id="@+id/sbAnger"
+                style="@style/seekBarStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:max="10"
+                android:progress="5"
+                android:progressTint="@color/colorAccent"
+                android:thumb="@drawable/thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvNumberAnger"
+                app:layout_constraintStart_toEndOf="@id/tvAnger"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNumberAnger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_8"
+                android:text="5"
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/char_40"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvDisgust"
+                android:layout_width="@dimen/margin_100"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:text="Disgust"
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SeekBar
+                android:id="@+id/sbDisgust"
+                style="@style/seekBarStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:max="10"
+                android:progress="5"
+                android:progressTint="@color/colorAccent"
+                android:thumb="@drawable/thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvNumberDisgust"
+                app:layout_constraintStart_toEndOf="@id/tvDisgust"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNumberDisgust"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_8"
+                android:text="5"
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/char_40"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvSad"
+                android:layout_width="@dimen/margin_100"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:text="Sad"
+
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SeekBar
+                android:id="@+id/sbSad"
+                style="@style/seekBarStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:max="10"
+                android:progress="5"
+                android:progressTint="@color/colorAccent"
+                android:thumb="@drawable/thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvNumberSad"
+                app:layout_constraintStart_toEndOf="@id/tvSad"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNumberSad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_8"
+                android:text="5"
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/char_40"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvHappy"
+                android:layout_width="@dimen/margin_100"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:text="Happy"
+
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SeekBar
+                android:id="@+id/sbHappy"
+                style="@style/seekBarStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:max="10"
+                android:progress="5"
+                android:progressTint="@color/colorAccent"
+                android:thumb="@drawable/thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvNumberHappy"
+                app:layout_constraintStart_toEndOf="@id/tvHappy"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNumberHappy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_8"
+                android:text="5"
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/char_40"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvSurprise"
+                android:layout_width="@dimen/margin_100"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:text="Surprise"
+
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SeekBar
+                android:id="@+id/sbSurprise"
+                style="@style/seekBarStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:max="10"
+                android:progress="5"
+                android:progressTint="@color/colorAccent"
+                android:thumb="@drawable/thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvNumberSurprise"
+                app:layout_constraintStart_toEndOf="@id/tvSurprise"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNumberSurprise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_8"
+                android:text="5"
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/char_40"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvFear"
+                android:layout_width="@dimen/margin_100"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8"
+                android:text="Fear"
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <SeekBar
+                android:id="@+id/sbFear"
+                style="@style/seekBarStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/margin_30"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_20"
+                android:max="10"
+                android:progress="5"
+                android:progressTint="@color/colorAccent"
+                android:thumb="@drawable/thumb"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tvNumberFear"
+                app:layout_constraintStart_toEndOf="@id/tvFear"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNumberFear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/margin_8"
+                android:text="5"
+                android:textColor="@color/white_background"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btRecommend"
+            style="@style/WhatToWatchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_big"
+            android:layout_marginTop="@dimen/static_spacing_large"
+            android:layout_marginRight="@dimen/spacing_big"
+            android:layout_marginBottom="@dimen/spacing_large_extra"
+            android:text="Recommend"
+            app:layout_constraintTop_toBottomOf="@+id/vLoginPasswordInputLayout" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

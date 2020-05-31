@@ -28,7 +28,7 @@ class GuestFragment @Inject constructor(): WhatToWhatchFragment<LoginPresenter>(
         btStart.setOnClickListener {
             if(tietName.text!!.isNotEmpty()){
                 sharedPreferencesUtils.name = tietName.text.toString()
-                (requireActivity()as MainActivity).replaceFragment( ContentSelectionFragment(),R.id.vBaseContent,true,
+                (requireActivity()as MainActivity).replaceFragment( ContentSelectionFragment(false),R.id.vBaseContent,true,
                     "Content",false)
                 hideKeyboard()
             } else {

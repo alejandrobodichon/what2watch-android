@@ -9,6 +9,7 @@ import android.widget.FrameLayout
 import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.core.util.ToastFactory
+import com.example.whatowatch.R
 import com.example.whatowatch.ui.main.MainActivity
 import com.example.whatowatch.utils.SharedPreferencesUtils
 import com.google.android.material.snackbar.Snackbar
@@ -31,6 +32,7 @@ abstract class WhatToWhatchFragment<T : BasePresenter<*>> : WolmoFragment<T>(), 
             this@apply.navigationIcon = navigationIcon
             this.title = title
             this.visibility = View.VISIBLE
+            this.setTitleTextColor(resources.getColor(R.color.whatowatch_even_light_grey))
         }
     }
 

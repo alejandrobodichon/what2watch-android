@@ -143,6 +143,7 @@
                 android:maxLines="1"
                 android:paddingStart="10dp"
                 android:paddingTop="@dimen/margin_2"
+                android:inputType="textEmailAddress"
                 android:singleLine="true"
                 android:textColor="@color/whatowatch_white"
                 android:textColorHint="@color/whatowatch_dark_light_red"
@@ -204,6 +205,7 @@
                 android:paddingStart="10dp"
                 android:paddingTop="@dimen/margin_2"
                 android:singleLine="true"
+                android:inputType="textPassword"
                 android:textColor="@color/whatowatch_white"
                 android:textColorHint="@color/whatowatch_dark_light_red"
                 android:textCursorDrawable="@null"
@@ -231,6 +233,7 @@
                 android:gravity="bottom"
                 android:hint="Repeat password"
                 android:maxLines="1"
+                android:inputType="textPassword"
                 android:paddingStart="10dp"
                 android:paddingTop="@dimen/margin_2"
                 android:singleLine="true"
@@ -272,6 +275,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <CheckBox
+            android:id="@+id/cbTerms"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/margin_30"
             android:layout_marginStart="@dimen/margin_20"
@@ -280,7 +284,7 @@
             android:textColor="@color/white_background" />
 
         <Button
-            android:id="@+id/vLoginButton"
+            android:id="@+id/btRegister"
             style="@style/WhatToWatchButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

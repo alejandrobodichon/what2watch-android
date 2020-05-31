@@ -1,10 +1,10 @@
 package com.example.whatowatch.ui.main.register
 
+import com.example.whatowatch.shareable.IWhatToWhatchView
 
-interface IRegisterView {
 
-    fun showError(message: String)
-    fun hideProgressBar()
+interface IRegisterView: IWhatToWhatchView {
 
-    fun showProgressBar()
+    //fun registerSuccessful()
+    fun goBack()
 }

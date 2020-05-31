@@ -1,30 +1,28 @@
 package com.example.whatowatch.ui.main.recomendationdetail
 
 import android.graphics.Typeface
-import android.graphics.drawable.Drawable
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
 import android.view.View
 import androidx.core.content.ContextCompat
-import ar.com.wolox.wolmo.core.fragment.WolmoFragment
 import com.bumptech.glide.Glide
 import com.example.whatowatch.R
+import com.example.whatowatch.model.EmotionsModel
 import com.example.whatowatch.model.RecomendationModel
 import com.example.whatowatch.shareable.WhatToWhatchFragment
 import com.example.whatowatch.ui.main.MainActivity
-import com.example.whatowatch.utils.SharedPreferencesUtils
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.detail_fragment.*
 import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
 
 
-class RecomendationDetailFragment @Inject constructor(val content: String, val genre: String) :
+class RecomendationDetailFragment @Inject constructor(val content: String?,  val genre: String?, val emotionsModel: EmotionsModel?) :
     WhatToWhatchFragment<RecomendationDetailPresenter>(), IRecomendationDetailView {
 
-    private lateinit var recomendationList: List<RecomendationModel>
+    private lateinit var recommendationList: List<RecomendationModel>
     private var position: Int = 0
+
 
     override fun layout(): Int = R.layout.detail_fragment
 
@@ -34,14 +32,14 @@ class RecomendationDetailFragment @Inject constructor(val content: String, val g
             sharedPreferencesUtils.name.toString()
         )
 
-        presenter.getRecomendations(content, genre)
+        presenter.getRecomendations(content, genre, emotionsModel)
         btAnother.setOnClickListener {
-            if (position + 1 <= recomendationList.size - 1)
+            if (position + 1 <= recommendationList.size - 1)
                 position++
             else {
                 position = 0
             }
-            renderLayout(recomendationList[position])
+            renderLayout(recommendationList[position])
         }
 
         btRestart.setOnClickListener {
@@ -50,7 +48,7 @@ class RecomendationDetailFragment @Inject constructor(val content: String, val g
     }
 
     override fun renderRecomendation(recomendationModelList: List<RecomendationModel>?) {
-        recomendationList = recomendationModelList!!
+        recommendationList = recomendationModelList!!
         if (recomendationModelList.isEmpty()) {
             showError("No content to show.")
             goBack()

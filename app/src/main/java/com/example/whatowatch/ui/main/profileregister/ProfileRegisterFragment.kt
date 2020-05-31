@@ -57,8 +57,8 @@ class ProfileRegisterFragment @Inject constructor(): WhatToWhatchFragment<LoginP
             "Thriller",
             "Drama",
             "Animation",
-            "Fantasy",
-            "Comedy-Romance"
+            "Fantasy"
+
         )
         adapter.setUsers(users)
     }
