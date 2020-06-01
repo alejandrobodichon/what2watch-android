@@ -49,13 +49,11 @@ class LoginFragment @Inject constructor() : WhatToWhatchFragment<LoginPresenter>
     }
 
     private fun validateLoginInput(){
-        if(vLoginUserInputEditText.text!!.isEmpty())
-            showError("You must complete your username to login.")
-        else
-            if(vLoginpassInputEditText.text!!.isEmpty())
-                showError("You must complete your password to login.")
-            else
-                presenter.login(vLoginUserInputEditText.text.toString(),vLoginpassInputEditText.text.toString())
+        when {
+            vLoginUserInputEditText.text!!.isEmpty() -> showError("You must complete your username to login.")
+            vLoginpassInputEditText.text!!.isEmpty() -> showError("You must complete your password to login.")
+            else -> presenter.login(vLoginUserInputEditText.text.toString(),vLoginpassInputEditText.text.toString())
+        }
     }
 
     override fun onResume() {
