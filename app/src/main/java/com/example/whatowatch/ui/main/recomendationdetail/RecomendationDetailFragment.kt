@@ -129,16 +129,9 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
     }
 
     override fun goBack() {
-        (requireActivity() as MainActivity).backToFragmentPosition(0)
+        (requireActivity() as MainActivity).backToFragmentPosition(1)
     }
 
-    override fun hideProgressBar() {
-        clProgressBar.visibility = View.GONE
-    }
-
-    override fun showProgressBar() {
-        clProgressBar.visibility = View.VISIBLE
-    }
 
     companion object {
 

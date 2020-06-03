@@ -1,13 +1,17 @@
 package com.example.whatowatch.ui.main
 
+import android.content.Context
+import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import ar.com.wolox.wolmo.core.activity.WolmoActivity
 import com.example.whatowatch.R
+import com.example.whatowatch.model.FragmentTransactionModel
+import com.example.whatowatch.model.TransactionType
 import com.example.whatowatch.ui.main.login.LoginFragment
 import com.example.whatowatch.utils.SharedPreferencesUtils
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
@@ -24,28 +28,10 @@ class MainActivity : WolmoActivity() {
         // status bar is hidden, so hide that too if necessary.
         //actionBar?.hide()
 
-        replaceFragment(R.id.vBaseContent, LoginFragment())
+        manageFragmentsSlideAnimation(LoginFragment(),null)
     }
 
     override fun layout() = R.layout.activity_main
-
-    fun replaceFragment(
-        fragment: Fragment, resId: Int,
-        addToBackStack: Boolean, title: String?, popToBackstack: Boolean
-    ): Fragment? {
-        supportFragmentManager.beginTransaction().apply {
-            if (addToBackStack) {
-                addToBackStack(null)
-            }
-            if (popToBackstack)
-                supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
-            commitAllowingStateLoss()
-            setTitle(title)
-            replace(resId, fragment)
-            return fragment
-        }
-
-    }
 
     fun hideToolbar(){
         vToolbar.visibility = View.GONE
@@ -59,6 +45,45 @@ class MainActivity : WolmoActivity() {
         clProgressBar.visibility = View.GONE
     }
 
+    fun manageFragmentsSlideAnimation(
+        _fragmentInstance: Fragment,
+        _args: Bundle?
+    ) {
+        val ftm = FragmentTransactionModel(_fragmentInstance, _args)
+        ftm.lAnimations =TransactionType.getSlideSideAnimation()
+        ftm.registerBackStackTransaction=true
+        hideProgressBar()
+        executeFragment(ftm)
+    }
+
+    private fun executeFragment(_ftm: FragmentTransactionModel) {
+        closeKeyboard()
+        val ft =
+            supportFragmentManager.beginTransaction()
+        _ftm.fragmentInstance.arguments = _ftm.args
+        if (_ftm.lAnimations.size == 4) {
+            ft.setCustomAnimations(
+                _ftm.lAnimations[0],
+                _ftm.lAnimations[1],
+                _ftm.lAnimations[2],
+                _ftm.lAnimations[3]
+            )
+        }
+        ft.replace(_ftm.iContainer, _ftm.fragmentInstance)
+        if (_ftm.registerBackStackTransaction) {
+            ft.addToBackStack(_ftm.fragmentInstance.javaClass.name)
+        }
+        ft.commit()
+    }
+
+    fun closeKeyboard() {
+        val view = currentFocus
+        if (view != null) {
+            val imm =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
 
     fun backToFragmentPosition(_iPosition: Int) {
         val entry = supportFragmentManager.getBackStackEntryAt(_iPosition)

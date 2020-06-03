@@ -6,39 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.MainActivity">
 
-    <include layout="@layout/progress_bar" />
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/vToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/black_background"
-            android:elevation="5dp"
-            app:titleTextColor="@color/whatowatch_grey">
 
-            <ImageView
-                android:id="@+id/vToolbarIcon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="end"
-                android:layout_marginEnd="@dimen/spacing_medium_more"
-                android:paddingTop="@dimen/spacing_medium"
-                android:src="@drawable/ic_palomitas_de_maiz"
-                tools:visibility="visible" />
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <FrameLayout
-            android:id="@+id/vBaseContent"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
+            android:orientation="vertical">
 
-    </LinearLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/vToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/black_background"
+                android:elevation="5dp"
+                app:titleTextColor="@color/whatowatch_grey">
+
+                <ImageView
+                    android:id="@+id/vToolbarIcon"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/spacing_medium_more"
+                    android:paddingTop="@dimen/spacing_medium"
+                    android:src="@drawable/ic_palomitas_de_maiz"
+                    tools:visibility="visible" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <FrameLayout
+                android:id="@+id/vBaseContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+        <include layout="@layout/progress_bar" />
+    </FrameLayout>
 
 </androidx.drawerlayout.widget.DrawerLayout>

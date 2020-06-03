@@ -19,13 +19,13 @@ class RegisterPresenter @Inject constructor(private val retrofitServices: Retrof
         retrofitServices.getService(PostUser::class.java).postUser(user).enqueue(
             object : AuthCallback<UserModel>(this) {
                 override fun onResponseSuccessful(response: UserModel?) {
-                    view?.goBack()
                     view?.hideProgressBar()
+                    view?.goBack()
                 }
 
                 override fun onResponseFailed(responseBody: ResponseBody?, code: Int) {
                     view?.showError("This username already exists. Please try another.")
-                    //view?.hideProgressBar()
+                    view?.hideProgressBar()
                 }
 
                 override fun onCallFailure(t: Throwable) {

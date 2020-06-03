@@ -1,4 +1,4 @@
-package com.example.whatowatch.ui.main.cityselection
+package com.example.whatowatch.ui.main.login
 
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
@@ -27,7 +27,7 @@ class LoginPresenter @Inject constructor(private val retrofitServices: RetrofitS
 
                 override fun onResponseFailed(responseBody: ResponseBody?, code: Int) {
                     view?.showError("The username or password is incorrect.")
-                    //view?.hideProgressBar()
+                    view?.hideProgressBar()
                 }
 
                 override fun onCallFailure(t: Throwable) {

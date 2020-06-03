@@ -6,16 +6,15 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.example.whatowatch.R
 import com.example.whatowatch.shareable.WhatToWhatchFragment
+import com.example.whatowatch.shareable.WhatToWhatchPresenter
 import com.example.whatowatch.ui.main.MainActivity
-import com.example.whatowatch.ui.main.cityselection.LoginPresenter
 import com.example.whatowatch.ui.main.contentselection.ContentSelectionFragment
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.fragment_guest.*
-import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
 
 
-class GuestFragment @Inject constructor(): WhatToWhatchFragment<LoginPresenter>(), IGuestView {
+class GuestFragment @Inject constructor(): WhatToWhatchFragment<WhatToWhatchPresenter>(), IGuestView {
 
     override fun layout(): Int = R.layout.fragment_guest
 
@@ -28,9 +27,7 @@ class GuestFragment @Inject constructor(): WhatToWhatchFragment<LoginPresenter>(
         btStart.setOnClickListener {
             if(tietName.text!!.isNotEmpty()){
                 sharedPreferencesUtils.name = tietName.text.toString()
-                (requireActivity()as MainActivity).replaceFragment( ContentSelectionFragment(false),R.id.vBaseContent,true,
-                    "Content",false)
-                hideKeyboard()
+                (requireActivity()as MainActivity).manageFragmentsSlideAnimation(ContentSelectionFragment(false),null)
             } else {
                 showError("You must complete the name to continue.")
             }
@@ -43,14 +40,6 @@ class GuestFragment @Inject constructor(): WhatToWhatchFragment<LoginPresenter>(
 
     override fun showError(message: String) {
         showSnackBar(message)
-    }
-
-    override fun hideProgressBar(){
-        clProgressBar.visibility = View.GONE
-    }
-
-    override fun showProgressBar(){
-        clProgressBar.visibility = View.VISIBLE
     }
 
 }

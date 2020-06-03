@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vLoginConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:foreground="@color/whatowatch_transparent_grey"/>
+
+    <LinearLayout
+        android:id="@+id/vLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not sure what to watch?"
+            android:gravity="center"
+            android:textSize="@dimen/char_40"
+            android:textColor="@color/whatowatch_even_light_grey"/>
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="@dimen/margin_20"
+            android:gravity="center"
+            android:src="@drawable/ic_perrito"
+            style="@style/LatoRegular.LargeExtra.Black.Bold"/>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/vConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/static_spacing_large"
+        app:layout_constraintTop_toBottomOf="@+id/vLayout"
+        app:layout_constraintBottom_toTopOf="@+id/llButton"
+        android:layout_marginLeft="@dimen/spacing_big_extra"
+        android:layout_marginRight="@dimen/spacing_big_extra"/>
+
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingBottom="@dimen/margin_20">
+
+        <Button
+            android:id="@+id/btTryItNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TRY IT NOW!"
+            android:layout_marginLeft="@dimen/spacing_big"
+            android:layout_marginRight="@dimen/spacing_big"
+            android:layout_marginBottom="@dimen/margin_20"
+            app:layout_constraintTop_toBottomOf="@+id/vLoginPasswordInputLayout"
+            style="@style/WhatToWatchButton"/>
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

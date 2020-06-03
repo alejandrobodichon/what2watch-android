@@ -53,19 +53,18 @@ abstract class WhatToWhatchFragment<T : BasePresenter<*>> : WolmoFragment<T>(), 
         imm.hideSoftInputFromWindow(requireView().windowToken, 0)
     }
 
+    override fun hideProgressBar() {
+        (requireActivity() as MainActivity).hideProgressBar()
+    }
 
+    override fun showProgressBar() {
+        (requireActivity() as MainActivity).showProgressBar()
+    }
 
     override fun showError(message: String) {
         showSnackBar(message)
     }
 
-    override fun hideProgressBar(){
-        (requireActivity() as MainActivity).hideProgressBar()
-    }
-
-    override fun showProgressBar(){
-        (requireActivity() as MainActivity).showProgressBar()
-    }
 
     companion object {
         private const val HORIZONTAL_MARGIN = 5

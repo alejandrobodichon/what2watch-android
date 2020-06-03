@@ -75,16 +75,13 @@ class EmotionsFragment @Inject constructor(val content: String): WhatToWhatchFra
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
         btRecommend.setOnClickListener {
-            (requireActivity() as MainActivity).replaceFragment(
-                RecomendationDetailFragment("serie",null, EmotionsModel(tvNumberAnger.text.toString(),
-                    tvNumberDisgust.text.toString(),
-                    tvNumberSad.text.toString(),
-                    tvNumberHappy.text.toString(),
-                    tvNumberSurprise.text.toString(),
-                    tvNumberFear.text.toString()
-                    )), R.id.vBaseContent, true,
-                "Recommend", false
-            )
+            (requireActivity() as MainActivity).manageFragmentsSlideAnimation( RecomendationDetailFragment(content,null, EmotionsModel(tvNumberAnger.text.toString(),
+                tvNumberDisgust.text.toString(),
+                tvNumberSad.text.toString(),
+                tvNumberHappy.text.toString(),
+                tvNumberSurprise.text.toString(),
+                tvNumberFear.text.toString())
+            ),null)
         }
 
     }

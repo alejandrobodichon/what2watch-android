@@ -28,7 +28,6 @@ class RegisterFragment @Inject constructor() : WhatToWhatchFragment<RegisterPres
 
     override fun init() {
         (requireActivity() as MainActivity).hideToolbar()
-        //setToolbarData(ContextCompat.getDrawable(requireContext(),R.drawable.ic_hamburger),"")
         Glide.with(requireContext()).load(R.mipmap.astrowalk)
             .apply(bitmapTransform(BlurTransformation(22)))
             .into(requireView().findViewById(R.id.ivBackground))
@@ -39,13 +38,20 @@ class RegisterFragment @Inject constructor() : WhatToWhatchFragment<RegisterPres
         mDateSetListener =
             OnDateSetListener { datePicker, year, month, day ->
                 var month = month
+                var day = day
                 month += 1
                 val parsedMonth: String
                 parsedMonth = if(month>9) {
                     month.toString()
                 } else "0$month"
 
-                val date = "$year-$parsedMonth-$day"
+                val parsedday: String
+                parsedday = if(day>9) {
+                    day.toString()
+                } else "0$day"
+
+
+                val date = "$year-$parsedMonth-$parsedday"
                 tietBirthday.setText(date)
             }
 
@@ -94,7 +100,8 @@ class RegisterFragment @Inject constructor() : WhatToWhatchFragment<RegisterPres
     }
 
     override fun goBack() {
-        (requireActivity() as MainActivity).backToFragmentPosition(0)
+        showError("Successfully registered!")
+        (requireActivity() as MainActivity).backToFragmentPosition(1)
     }
 
 }

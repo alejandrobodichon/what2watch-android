@@ -30,6 +30,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/margin_8"
+                        android:layout_marginEnd="@dimen/margin_8"
                         android:orientation="vertical">
 
                         <ImageView
@@ -144,7 +146,7 @@
                     android:layout_marginEnd="@dimen/spacing_big"
                     android:layout_marginBottom="@dimen/spacing_large_extra"
                     android:layout_weight="0.5"
-                    android:text="Restart" />
+                    android:text="Yes!" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

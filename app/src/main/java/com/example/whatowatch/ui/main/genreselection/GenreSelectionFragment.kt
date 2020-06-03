@@ -52,10 +52,7 @@ class GenreSelectionFragment @Inject constructor(val content: String) :
 
         btContinue.setOnClickListener {
             (rvGenreSelection.adapter as GenreAdapter).getChecked()?.let {
-                (requireActivity() as MainActivity).replaceFragment(
-                    RecomendationDetailFragment(content,it,null), R.id.vBaseContent, true,
-                    "Recommend", false
-                )
+                (requireActivity() as MainActivity).manageFragmentsSlideAnimation(RecomendationDetailFragment(content,it,null),null)
             } ?: run {
                 showError("You must choose one option.")
             }
@@ -69,13 +66,6 @@ class GenreSelectionFragment @Inject constructor(val content: String) :
         showSnackBar(message)
     }
 
-    override fun hideProgressBar() {
-        clProgressBar.visibility = View.GONE
-    }
-
-    override fun showProgressBar() {
-        clProgressBar.visibility = View.VISIBLE
-    }
 
     companion object {
 

@@ -6,12 +6,9 @@ import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.example.whatowatch.R
 import com.example.whatowatch.shareable.WhatToWhatchFragment
 import com.example.whatowatch.ui.main.MainActivity
-import com.example.whatowatch.ui.main.cityselection.LoginPresenter
-import com.example.whatowatch.ui.main.contentselection.ContentSelectionFragment
-import com.example.whatowatch.ui.main.emotions.EmotionsFragment
 import com.example.whatowatch.ui.main.guest.GuestFragment
-import com.example.whatowatch.ui.main.profileregister.ProfileRegisterFragment
 import com.example.whatowatch.ui.main.register.RegisterFragment
+import com.example.whatowatch.ui.main.welcome.WelcomeFragment
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.fragment_login.*
 import javax.inject.Inject
@@ -33,17 +30,11 @@ class LoginFragment @Inject constructor() : WhatToWhatchFragment<LoginPresenter>
         }
 
         vRegisterButton.setOnClickListener {
-            (requireActivity() as MainActivity).replaceFragment(
-                RegisterFragment(), R.id.vBaseContent, true,
-                "Register", false
-            )
+            (requireActivity() as MainActivity).manageFragmentsSlideAnimation(RegisterFragment(),null)
         }
 
         vGuestButton.setOnClickListener {
-            (requireActivity() as MainActivity).replaceFragment(
-                GuestFragment(), R.id.vBaseContent, true,
-                "Register", false
-            )
+            (requireActivity() as MainActivity).manageFragmentsSlideAnimation(GuestFragment(),null)
         }
 
     }
@@ -68,10 +59,6 @@ class LoginFragment @Inject constructor() : WhatToWhatchFragment<LoginPresenter>
 
     override fun loginSuccessful() {
         sharedPreferencesUtils.name = vLoginUserInputEditText.text.toString()
-            (requireActivity() as MainActivity).replaceFragment(
-                ContentSelectionFragment(true), R.id.vBaseContent, true,
-                //ProfileRegisterFragment(), R.id.vBaseContent, true,
-                "Content", false
-            )
+        (requireActivity() as MainActivity).manageFragmentsSlideAnimation(WelcomeFragment(),null)
     }
 }

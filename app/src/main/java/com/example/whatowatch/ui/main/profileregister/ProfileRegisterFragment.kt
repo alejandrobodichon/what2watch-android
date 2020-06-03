@@ -11,19 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.example.whatowatch.R
-import com.example.whatowatch.shareable.DragDropRecyclerAdapter
-import com.example.whatowatch.shareable.ItemMoveCallbackListener
-import com.example.whatowatch.shareable.OnStartDragListener
-import com.example.whatowatch.shareable.WhatToWhatchFragment
+import com.example.whatowatch.shareable.*
 import com.example.whatowatch.ui.main.MainActivity
-import com.example.whatowatch.ui.main.cityselection.LoginPresenter
 import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.profile_register_fragment.*
 import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
 
 
-class ProfileRegisterFragment @Inject constructor(): WhatToWhatchFragment<LoginPresenter>(), IProfileRegisterView,
+class ProfileRegisterFragment @Inject constructor(): WhatToWhatchFragment<WhatToWhatchPresenter>(), IProfileRegisterView,
     OnStartDragListener {
     lateinit var adapter: DragDropRecyclerAdapter
     lateinit var touchHelper: ItemTouchHelper
