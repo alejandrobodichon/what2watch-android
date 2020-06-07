@@ -2,8 +2,8 @@ package com.example.whatowatch.ui.main.register
 
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
-import com.example.geopagos.network.callback.AuthCallback
 import com.example.whatowatch.model.UserModel
+import com.example.whatowatch.network.callback.AuthCallback
 import com.example.whatowatch.network.services.PostUser
 import com.example.whatowatch.utils.SharedPreferencesUtils
 import okhttp3.ResponseBody
@@ -35,7 +35,4 @@ class RegisterPresenter @Inject constructor(private val retrofitServices: Retrof
 
             })
     }
-
-
-
 }

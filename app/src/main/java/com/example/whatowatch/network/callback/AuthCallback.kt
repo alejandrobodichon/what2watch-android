@@ -1,4 +1,4 @@
-package com.example.geopagos.network.callback
+package com.example.whatowatch.network.callback
 
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.callback.NetworkCallback

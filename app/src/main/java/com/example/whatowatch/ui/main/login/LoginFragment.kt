@@ -1,6 +1,5 @@
 package com.example.whatowatch.ui.main.login
 
-import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.example.whatowatch.R
@@ -19,11 +18,8 @@ class LoginFragment @Inject constructor() : WhatToWhatchFragment<LoginPresenter>
     override fun layout(): Int = R.layout.fragment_login
 
     override fun init() {
-        (requireActivity() as MainActivity).hideToolbar()
-        //setToolbarData(ContextCompat.getDrawable(requireContext(),R.drawable.ic_hamburger),"")
-        Glide.with(requireContext()).load(R.mipmap.astrowalk)
-            .apply(bitmapTransform(BlurTransformation(22)))
-            .into(requireView().findViewById(R.id.ivBackground))
+        disableToolbar()
+        setImageBackground()
 
         vLoginButton.setOnClickListener {
             validateLoginInput()

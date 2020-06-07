@@ -2,12 +2,10 @@ package com.example.whatowatch.ui.main.login
 
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
-import com.example.geopagos.network.callback.AuthCallback
-import com.example.whatowatch.model.RecomendationModel
+import com.example.whatowatch.model.UserModel
+import com.example.whatowatch.network.callback.AuthCallback
 import com.example.whatowatch.network.services.GetUser
-import com.example.whatowatch.ui.main.login.ILoginView
 import com.example.whatowatch.utils.SharedPreferencesUtils
-import com.example.whatowatch.utils.Utils.Companion.API_KEY
 import okhttp3.ResponseBody
 
 import javax.inject.Inject
@@ -19,8 +17,9 @@ class LoginPresenter @Inject constructor(private val retrofitServices: RetrofitS
     fun login(user: String, pass: String){
         view?.showProgressBar()
         retrofitServices.getService(GetUser::class.java).getUser("username:$user,pass:$pass").enqueue(
-            object : AuthCallback<List<RecomendationModel>>(this) {
-                override fun onResponseSuccessful(response: List<RecomendationModel>?) {
+            object : AuthCallback<List<UserModel>>(this) {
+                override fun onResponseSuccessful(response: List<UserModel>?) {
+                    sharedPreferencesUtils.user = response!![0]
                     view?.loginSuccessful()
                     view?.hideProgressBar()
                 }

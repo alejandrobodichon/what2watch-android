@@ -3,9 +3,9 @@ package com.example.whatowatch.ui.main.recomendationdetail
 import GetRecommendations
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
-import com.example.geopagos.network.callback.AuthCallback
 import com.example.whatowatch.model.EmotionsModel
 import com.example.whatowatch.model.RecomendationModel
+import com.example.whatowatch.network.callback.AuthCallback
 import com.example.whatowatch.utils.SharedPreferencesUtils
 import okhttp3.ResponseBody
 
@@ -26,8 +26,8 @@ class RecomendationDetailPresenter @Inject constructor(private val retrofitServi
         retrofitServices.getService(GetRecommendations::class.java).getRecommendation(filter).enqueue(
             object : AuthCallback<List<RecomendationModel>>(this) {
                 override fun onResponseSuccessful(response: List<RecomendationModel>?) {
-                    view?.renderRecomendation(response)
                     view?.hideProgressBar()
+                    view?.renderRecomendation(response)
                 }
 
                 override fun onResponseFailed(responseBody: ResponseBody?, code: Int) {

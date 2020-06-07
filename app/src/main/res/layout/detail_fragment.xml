@@ -45,6 +45,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_8"
+                            android:layout_marginEnd="@dimen/margin_8"
                             android:textColor="@color/whatowatch_white"
                             android:textSize="@dimen/char_40"
                             app:layout_constraintTop_toBottomOf="@id/ivImage" />
@@ -65,6 +66,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
+                            android:layout_marginEnd="@dimen/margin_8"
+                            app:layout_constraintEnd_toEndOf="parent"
                             android:textColor="@color/whatowatch_white"
                             app:layout_constraintTop_toBottomOf="@id/vSeparator" />
 
@@ -72,6 +75,8 @@
                             android:id="@+id/llYearGenre"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/margin_8"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvDetail">
 
                             <TextView
@@ -99,6 +104,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
+                            android:layout_marginEnd="@dimen/margin_8"
+                            app:layout_constraintEnd_toEndOf="parent"
                             android:textColor="@color/whatowatch_white"
                             app:layout_constraintTop_toBottomOf="@id/llYearGenre" />
 
@@ -109,7 +116,43 @@
                             android:layout_marginStart="@dimen/margin_8"
                             android:layout_marginTop="@dimen/margin_8"
                             android:textColor="@color/whatowatch_white"
+                            android:layout_marginEnd="@dimen/margin_8"
+                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/tvMainCast" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginEnd="@dimen/margin_8"
+                            android:layout_marginStart="@dimen/margin_8"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvDirector">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="Streaming: "
+                                android:textColor="@color/white_background"/>
+
+                            <ImageView
+                                android:id="@+id/ivNetflix"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:src="@drawable/ic_netflix_icon"/>
+
+                            <ImageView
+                                android:id="@+id/ivAmazonPrime"
+                                android:layout_width="70dp"
+                                android:layout_height="35dp"
+                                android:layout_marginStart="@dimen/margin_8"
+                                android:visibility="gone"
+                                tools:visibility="visible"
+                                android:src="@drawable/ic_amazon_prime_logo"/>
+
+                        </LinearLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>

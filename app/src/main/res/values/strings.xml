@@ -5,6 +5,8 @@
     <string name="detail_genre">Genre: %s</string>
     <string name="detail_main_cast">Main cast: %s</string>
     <string name="detail_director">Director: %s</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 
 

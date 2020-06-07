@@ -43,7 +43,7 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
         }
 
         btRestart.setOnClickListener {
-            goBack()
+            (requireActivity() as MainActivity).backToFragmentPosition(2)
         }
     }
 
@@ -91,20 +91,6 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
-        } ?: run{
-            tvMainCast.text = SpannableString(
-                getString(
-                    R.string.detail_main_cast,
-                    "N/A"
-                )
-            ).apply {
-                setSpan(
-                    StyleSpan(Typeface.BOLD),
-                    11,
-                    11 + "N/A".length,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
-            }
         }
 
         tvDirector.text = SpannableString(
@@ -116,25 +102,36 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
             setSpan(
                 StyleSpan(Typeface.BOLD),
                 10,
-                10 + recomendationModel.director?.length,
+                10 + recomendationModel.director!!.length,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
             )
+        }
+
+        recomendationModel.amazon?.let {
+            if(recomendationModel.amazon == "N/A")
+                ivAmazonPrime.visibility = View.GONE
+            else
+                ivAmazonPrime.visibility = View.VISIBLE
+        }?:run{
+            ivAmazonPrime.visibility = View.GONE
+        }
+
+        recomendationModel.netflix?.let {
+            if(recomendationModel.netflix == "N/A")
+                ivNetflix.visibility = View.GONE
+            else
+                ivNetflix.visibility = View.VISIBLE
+
+        }?:run{
+            ivNetflix.visibility = View.GONE
         }
 
     }
 
 
-    override fun showError(message: String) {
-        showSnackBar(message)
-    }
-
     override fun goBack() {
         (requireActivity() as MainActivity).backToFragmentPosition(1)
     }
 
-
-    companion object {
-
-    }
 
 }

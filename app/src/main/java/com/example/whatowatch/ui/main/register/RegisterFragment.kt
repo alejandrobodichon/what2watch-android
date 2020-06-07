@@ -27,11 +27,8 @@ class RegisterFragment @Inject constructor() : WhatToWhatchFragment<RegisterPres
     override fun layout(): Int = R.layout.fragment_register
 
     override fun init() {
-        (requireActivity() as MainActivity).hideToolbar()
-        Glide.with(requireContext()).load(R.mipmap.astrowalk)
-            .apply(bitmapTransform(BlurTransformation(22)))
-            .into(requireView().findViewById(R.id.ivBackground))
-
+        disableToolbar()
+        setImageBackground()
 
         tietBirthday.setOnFocusChangeListener { v, hasFocus -> if (hasFocus) showDatePickerDialog() }
 

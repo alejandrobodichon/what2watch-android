@@ -27,11 +27,8 @@ class ProfileRegisterFragment @Inject constructor(): WhatToWhatchFragment<WhatTo
     override fun layout(): Int = R.layout.profile_register_fragment
 
     override fun init() {
-        //(requireActivity() as MainActivity).hideToolbar()
-        setToolbarData(ContextCompat.getDrawable(requireContext(),R.drawable.ic_hamburger),"")
-        Glide.with(requireContext()).load(R.mipmap.astrowalk)
-            .apply(bitmapTransform(BlurTransformation(22)))
-            .into(requireView().findViewById(R.id.ivBackground))
+        disableToolbar()
+        setImageBackground()
 
         adapter = DragDropRecyclerAdapter(this)
         populateListItem()

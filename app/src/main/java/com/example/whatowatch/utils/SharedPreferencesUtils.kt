@@ -2,6 +2,7 @@ package com.example.whatowatch.utils
 
 import ar.com.wolox.wolmo.core.di.scopes.ApplicationScope
 import ar.com.wolox.wolmo.core.util.SharedPreferencesManager
+import com.example.whatowatch.model.UserModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -14,16 +15,16 @@ class SharedPreferencesUtils @Inject constructor(
 
     private val gson: Gson = Gson()
 
-//    var cityList: List<CityModel>?
-//        get() {
-//            val fieldJson = sharedPreferencesManager[KEY_CITY, null]
-//            val listType = object : TypeToken<List<CityModel>>() {}.type
-//            return gson.fromJson(fieldJson,listType)
-//        }
-//        set(cityList) {
-//            sharedPreferencesManager.store(KEY_CITY, gson.toJson(cityList))
-//        }
-//
+    var user: UserModel?
+        get() {
+            val fieldJson = sharedPreferencesManager[USER, null]
+            val listType = object : TypeToken<UserModel>() {}.type
+            return gson.fromJson(fieldJson,listType)
+        }
+        set(user) {
+            sharedPreferencesManager.store(USER, gson.toJson(user))
+        }
+
     var name: String?
         get() {
             val fieldJson = sharedPreferencesManager[NAME, null]
@@ -76,7 +77,7 @@ class SharedPreferencesUtils @Inject constructor(
 
     companion object {
         private const val NAME = "name"
-        private const val KEY_CITY = "key_city"
+        private const val USER = "user"
         private const val KEY_CITY_1 = "key_city_1"
         private const val KEY_CITY_2 = "key_city_2"
         private const val KEY_CITY_3 = "key_city_3"

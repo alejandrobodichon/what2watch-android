@@ -21,11 +21,8 @@ class EmotionsFragment @Inject constructor(val content: String): WhatToWhatchFra
     override fun layout(): Int = R.layout.emotions_fragment
 
     override fun init() {
-        //(requireActivity() as MainActivity).hideToolbar()
         setToolbarData(ContextCompat.getDrawable(requireContext(),R.drawable.ic_hamburger),"")
-        Glide.with(requireContext()).load(R.mipmap.astrowalk)
-            .apply(bitmapTransform(BlurTransformation(22)))
-            .into(requireView().findViewById(R.id.ivBackground))
+        setImageBackground()
 
         sbAnger.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -87,9 +84,6 @@ class EmotionsFragment @Inject constructor(val content: String): WhatToWhatchFra
     }
 
 
-    override fun onResume() {
-        super.onResume()
-    }
 
 
 }

@@ -31,19 +31,17 @@ class GenreSelectionFragment @Inject constructor(val content: String) :
             ContextCompat.getDrawable(requireContext(), R.drawable.ic_hamburger),
             "Genre"
         )
-
-        Glide.with(requireContext()).load(R.mipmap.astrowalk)
-            .apply(RequestOptions.bitmapTransform(BlurTransformation(22)))
-            .into(requireView().findViewById(R.id.ivBackground))
+        setImageBackground()
 
         val genreItems = listOf(
-            GenreModel("drama"),
-            GenreModel("suspense"),
-            GenreModel("comedy"),
-            GenreModel("romance"),
-            GenreModel("action"),
-            GenreModel("horror"),
-            GenreModel("animation")
+            GenreModel("Comedy"),
+            GenreModel("Horror"),
+            GenreModel("Romance"),
+            GenreModel("Action"),
+            GenreModel("Thriller"),
+            GenreModel("Drama"),
+            GenreModel("Animation"),
+            GenreModel("Fantasy")
         )
         rvGenreSelection.layoutManager = LinearLayoutManager(requireContext())
         rvGenreSelection.adapter = GenreAdapter(requireContext()).also {
@@ -60,16 +58,5 @@ class GenreSelectionFragment @Inject constructor(val content: String) :
         }
 
     }
-
-
-    override fun showError(message: String) {
-        showSnackBar(message)
-    }
-
-
-    companion object {
-
-    }
-
 
 }

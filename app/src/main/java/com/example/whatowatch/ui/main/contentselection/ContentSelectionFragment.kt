@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.genre_selection_fragment.*
 import javax.inject.Inject
 
 
-class ContentSelectionFragment @Inject constructor(val fromLogin: Boolean) :
+class ContentSelectionFragment @Inject constructor(private val fromLogin: Boolean) :
     WhatToWhatchFragment<GenreSelectionPresenter>(), IContentSelectionView {
 
 
@@ -29,10 +29,7 @@ class ContentSelectionFragment @Inject constructor(val fromLogin: Boolean) :
             ContextCompat.getDrawable(requireContext(), R.drawable.ic_hamburger),
             "Content"
         )
-
-        Glide.with(requireContext()).load(R.mipmap.astrowalk)
-            .apply(RequestOptions.bitmapTransform(BlurTransformation(22)))
-            .into(requireView().findViewById(R.id.ivBackground))
+        setImageBackground()
 
         val genreItems = listOf(GenreModel("serie"), GenreModel("movie"))
         rvGenreSelection.layoutManager = LinearLayoutManager(requireContext())
@@ -65,9 +62,6 @@ class ContentSelectionFragment @Inject constructor(val fromLogin: Boolean) :
         showSnackBar(message)
     }
 
-    companion object {
-
-    }
 
 
 }

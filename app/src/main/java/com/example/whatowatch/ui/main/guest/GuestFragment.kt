@@ -19,27 +19,16 @@ class GuestFragment @Inject constructor(): WhatToWhatchFragment<WhatToWhatchPres
     override fun layout(): Int = R.layout.fragment_guest
 
     override fun init() {
-        setToolbarData(ContextCompat.getDrawable(requireContext(),R.drawable.ic_hamburger),"")
-        Glide.with(requireContext()).load(R.mipmap.astrowalk)
-            .apply(bitmapTransform(BlurTransformation(22)))
-            .into(requireView().findViewById(R.id.ivBackground))
+        disableToolbar()
+        setImageBackground()
 
         btStart.setOnClickListener {
             if(tietName.text!!.isNotEmpty()){
-                sharedPreferencesUtils.name = tietName.text.toString()
+                sharedPreferencesUtils.user?.name = tietName.text.toString()
                 (requireActivity()as MainActivity).manageFragmentsSlideAnimation(ContentSelectionFragment(false),null)
             } else {
                 showError("You must complete the name to continue.")
             }
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun showError(message: String) {
-        showSnackBar(message)
-    }
-
 }
