@@ -25,7 +25,7 @@ class whatowatchApplication : WolmoApplication() {
     }
 
     private fun buildDaggerNetworkingComponent(): NetworkingComponent {
-        val builder = DaggerNetworkingComponent.builder().baseUrl("http://10.0.2.2:8080/")
+        val builder = DaggerNetworkingComponent.builder().baseUrl("http://192.168.0.150:8080/")
             .gsonNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
         builder.okHttpInterceptors(buildHttpLoggingInterceptor(HttpLoggingInterceptor.Level.BODY), ChuckInterceptor(this))
         return builder.build()

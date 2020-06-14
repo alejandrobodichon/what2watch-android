@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vLoginConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:foreground="@color/whatowatch_transparent_grey"
+        android:scaleType="fitXY" />
+
+    <LinearLayout
+        android:id="@+id/llRegister"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How do you want to feel today?"
+            android:textSize="25sp"
+            android:textColor="@color/white_background"
+            android:layout_marginStart="@dimen/margin_8"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEmoticon1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_16"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3"
+            tools:listitem="@layout/adapter_item_imageview"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btRecommend"
+            style="@style/WhatToWatchButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_big"
+            android:layout_marginTop="@dimen/static_spacing_large"
+            android:layout_marginRight="@dimen/spacing_big"
+            android:layout_marginBottom="@dimen/spacing_large_extra"
+            android:text="Recommend"
+            app:layout_constraintTop_toBottomOf="@+id/vLoginPasswordInputLayout" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

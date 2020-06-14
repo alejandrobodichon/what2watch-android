@@ -1,22 +1,15 @@
 package com.example.whatowatch.ui.main.genreselection
 
-import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import ar.com.wolox.wolmo.core.fragment.WolmoFragment
-import ar.com.wolox.wolmo.core.util.ToastFactory
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.whatowatch.R
 import com.example.whatowatch.model.GenreModel
+import com.example.whatowatch.shareable.EmoticonsAdapter
 import com.example.whatowatch.shareable.GenreAdapter
 import com.example.whatowatch.shareable.WhatToWhatchFragment
 import com.example.whatowatch.ui.main.MainActivity
 import com.example.whatowatch.ui.main.recomendationdetail.RecomendationDetailFragment
-import com.example.whatowatch.utils.SharedPreferencesUtils
-import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.genre_selection_fragment.*
-import kotlinx.android.synthetic.main.progress_bar.*
 import javax.inject.Inject
 
 

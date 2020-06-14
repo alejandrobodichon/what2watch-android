@@ -87,9 +87,9 @@ abstract class WhatToWhatchFragment<T : BasePresenter<*>> : WolmoFragment<T>(), 
 
     private fun setToolbarItems(){
         val toolbarItems = ArrayList<ToolbarItem>()
-        toolbarItems.apply {
-            add(ToolbarItem("Watch list",R.drawable.ic_list_24px))
-        }
+//        toolbarItems.apply {
+//            add(ToolbarItem("Watch list",R.drawable.ic_list_24px))
+//        }
         requireActivity().vToobarBaseItemRecycler.layoutManager = LinearLayoutManager(requireContext())
         val toolbarItemsAdapter = ToolbarItemsAdapter(requireContext())
         requireActivity().vToobarBaseItemRecycler.adapter = toolbarItemsAdapter
