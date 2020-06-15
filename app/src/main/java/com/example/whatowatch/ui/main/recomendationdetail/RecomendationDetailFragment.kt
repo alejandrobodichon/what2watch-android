@@ -40,11 +40,34 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
                 position = 0
             }
             renderLayout(recommendationList[position])
+            if (ivDislike.isSelected)
+                ivDislike.isSelected = false
+            if (ivLike.isSelected)
+                ivLike.isSelected = false
         }
 
         btRestart.setOnClickListener {
             (requireActivity() as MainActivity).backToFragmentPosition(2)
         }
+
+        btComment.setOnClickListener {
+            btComment.visibility = View.GONE
+            btComment2.visibility = View.VISIBLE
+            etCommment.visibility = View.VISIBLE
+        }
+
+        ivLike.setOnClickListener {
+            ivLike.isSelected = !ivLike.isSelected
+            if (ivDislike.isSelected)
+                ivDislike.isSelected = false
+        }
+
+        ivDislike.setOnClickListener {
+            ivDislike.isSelected = !ivDislike.isSelected
+            if (ivLike.isSelected)
+                ivLike.isSelected = false
+        }
+
     }
 
     override fun renderRecomendation(recomendationModelList: List<RecomendationModel>?) {

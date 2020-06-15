@@ -26,36 +26,12 @@ class EmoticonsFragment @Inject constructor(val content: String): WhatToWhatchFr
 
         val emoticons1 = listOf(EmoticonsModel("1",R.drawable.ic_happy_2), EmoticonsModel("2",R.drawable.ic_happy_4),EmoticonsModel("3",R.drawable.ic_crying_1),
             EmoticonsModel("4",R.drawable.ic_in_love), EmoticonsModel("5",R.drawable.ic_surprised_3),EmoticonsModel("6",R.drawable.ic_surprised),
-            EmoticonsModel("7",R.drawable.ic_crying), EmoticonsModel("8",R.drawable.ic_angry_1),EmoticonsModel("9",R.drawable.ic_shocked),
+            EmoticonsModel("7",R.drawable.ic_crying), EmoticonsModel("8",R.drawable.ic_angry),EmoticonsModel("9",R.drawable.ic_shocked),
             EmoticonsModel("10",R.drawable.ic_crying_2), EmoticonsModel("11",R.drawable.ic_sad),EmoticonsModel("12",R.drawable.ic_scare))
         rvEmoticon1.layoutManager = GridLayoutManager(requireContext(),3)
         rvEmoticon1.adapter = EmoticonsAdapter(requireContext()).also {
             it.submitList(emoticons1)
         }
-
-//        val emoticons2 = listOf(EmoticonsModel("happy1",R.drawable.ic_happy_2), EmoticonsModel("happy2",R.drawable.ic_happy_5),EmoticonsModel("happy3",R.drawable.ic_laughing_2))
-//        rvEmoticon2.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
-//        rvEmoticon2.suppressLayout(true)
-//        rvEmoticon2.isLayoutFrozen = true
-//        rvEmoticon2.adapter = EmoticonsAdapter(requireContext()).also {
-//            it.submitList(emoticons2)
-//        }
-//
-//        val emoticons3 = listOf(EmoticonsModel("happy1",R.drawable.ic_happy_2), EmoticonsModel("happy2",R.drawable.ic_happy_5),EmoticonsModel("happy3",R.drawable.ic_laughing_2))
-//        rvEmoticon3.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
-//        rvEmoticon3.suppressLayout(true)
-//        rvEmoticon3.isLayoutFrozen = true
-//        rvEmoticon3.adapter = EmoticonsAdapter(requireContext()).also {
-//            it.submitList(emoticons3)
-//        }
-//
-//        val emoticons4 = listOf(EmoticonsModel("happy1",R.drawable.ic_happy_2), EmoticonsModel("happy2",R.drawable.ic_happy_5),EmoticonsModel("happy3",R.drawable.ic_laughing_2))
-//        rvEmoticon4.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL,false)
-//        rvEmoticon4.suppressLayout(true)
-//        rvEmoticon4.isLayoutFrozen = true
-//        rvEmoticon4.adapter = EmoticonsAdapter(requireContext()).also {
-//            it.submitList(emoticons4)
-//        }
 
         btRecommend.setOnClickListener {
             (requireActivity() as MainActivity).manageFragmentsSlideAnimation( RecomendationDetailFragment(content,"comedy", null),null)

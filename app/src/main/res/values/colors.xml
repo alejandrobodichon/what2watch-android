@@ -41,6 +41,7 @@
     <color name="whatowatch_orange">#FFFFB721</color>
     <color name="whatowatch_transparent_orange">#33FFB721</color>
     <color name="whatowatch_transparent_grey">#D55C4E4E</color>
+    <color name="whatowatch_transparent_black">#D5000000</color>
     <color name="whatowatch_spinner_grey">#FFF8F7F8</color>
 
     <color name="spinnerBackground">#C35C4E4E</color>
