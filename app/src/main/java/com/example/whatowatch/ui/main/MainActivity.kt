@@ -28,7 +28,7 @@ class MainActivity : WolmoActivity() {
         // status bar is hidden, so hide that too if necessary.
         //actionBar?.hide()
 
-        manageFragmentsSlideAnimation(LoginFragment(),null)
+        manageFragmentsSlideAnimationNoBack(LoginFragment(),null)
     }
 
     override fun layout() = R.layout.activity_main
@@ -52,6 +52,17 @@ class MainActivity : WolmoActivity() {
         val ftm = FragmentTransactionModel(_fragmentInstance, _args)
         ftm.lAnimations =TransactionType.getSlideSideAnimation()
         ftm.registerBackStackTransaction=true
+        hideProgressBar()
+        executeFragment(ftm)
+    }
+
+    fun manageFragmentsSlideAnimationNoBack(
+        _fragmentInstance: Fragment,
+        _args: Bundle?
+    ) {
+        val ftm = FragmentTransactionModel(_fragmentInstance, _args)
+        ftm.lAnimations =TransactionType.getSlideSideAnimation()
+        ftm.registerBackStackTransaction=false
         hideProgressBar()
         executeFragment(ftm)
     }

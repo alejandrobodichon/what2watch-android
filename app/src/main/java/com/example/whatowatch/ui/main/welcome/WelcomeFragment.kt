@@ -15,12 +15,16 @@ import javax.inject.Inject
 
 class WelcomeFragment @Inject constructor() : WhatToWhatchFragment<WhatToWhatchPresenter>(), IWhatToWhatchView {
 
+    private var firstTime =true
     override fun layout(): Int = R.layout.welcome_fragment
 
     override fun init() {
         setToolbarData(ContextCompat.getDrawable(requireContext(),R.drawable.ic_hamburger),"What2Watch")
         setImageBackground()
-        showError("Welcome ${sharedPreferencesUtils.user?.name}")
+        if(firstTime){
+            showError("Welcome ${sharedPreferencesUtils.user?.name}")
+            firstTime= false
+        }
 
         btTryItNow.setOnClickListener {
             (requireActivity() as MainActivity).manageFragmentsSlideAnimation(
