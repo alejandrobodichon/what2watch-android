@@ -3,6 +3,7 @@ package com.example.whatowatch.ui.main.recomendationdetail
 import GetRecommendations
 import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
+import com.example.whatowatch.model.EmoticonsModel
 import com.example.whatowatch.model.EmotionsModel
 import com.example.whatowatch.model.RecomendationModel
 import com.example.whatowatch.network.callback.AuthCallback
@@ -17,11 +18,16 @@ class RecomendationDetailPresenter @Inject constructor(private val retrofitServi
     private var filter: String? = null
 
 
-    fun getRecomendations(content: String?, genre: String?, emotionsModel: EmotionsModel?){
+    fun getRecomendations(content: String?, emoticonsList: List<EmoticonsModel>?, genre: String?){
         view?.showProgressBar()
         when{
-            emotionsModel == null -> filter = "type:$content,genre:$genre"
-            emotionsModel != null && content!= null -> filter = "type:$content,${emotionsModel.toString()}"
+            genre != null && content!= null -> filter = "type:$content,genre:${genre}"
+            genre == null ->
+                when(emoticonsList?.size){
+                    1 -> filter = "type:$content,emoid=${emoticonsList[0].id}"
+                    2 -> filter = "type:$content,emoid:${emoticonsList[0].id};${emoticonsList[1].id}"
+                    3 -> filter = "type:$content,emoid:${emoticonsList[0].id};${emoticonsList[1].id};${emoticonsList[2].id}"
+                }
         }
         retrofitServices.getService(GetRecommendations::class.java).getRecommendation(filter).enqueue(
             object : AuthCallback<List<RecomendationModel>>(this) {

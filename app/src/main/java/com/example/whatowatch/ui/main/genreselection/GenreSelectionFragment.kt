@@ -43,7 +43,7 @@ class GenreSelectionFragment @Inject constructor(val content: String) :
 
         btContinue.setOnClickListener {
             (rvGenreSelection.adapter as GenreAdapter).getChecked()?.let {
-                (requireActivity() as MainActivity).manageFragmentsSlideAnimation(RecomendationDetailFragment(content,it,null),null)
+                (requireActivity() as MainActivity).manageFragmentsSlideAnimation(RecomendationDetailFragment(content,null,it),null)
             } ?: run {
                 showError("You must choose one option.")
             }

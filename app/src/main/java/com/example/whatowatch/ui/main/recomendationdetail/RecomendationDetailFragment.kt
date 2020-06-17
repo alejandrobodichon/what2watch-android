@@ -1,6 +1,8 @@
 package com.example.whatowatch.ui.main.recomendationdetail
 
+import android.content.Intent
 import android.graphics.Typeface
+import android.net.Uri
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
@@ -8,16 +10,17 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.whatowatch.R
+import com.example.whatowatch.model.EmoticonsModel
 import com.example.whatowatch.model.EmotionsModel
 import com.example.whatowatch.model.RecomendationModel
 import com.example.whatowatch.shareable.WhatToWhatchFragment
 import com.example.whatowatch.ui.main.MainActivity
 import kotlinx.android.synthetic.main.detail_fragment.*
-import kotlinx.android.synthetic.main.progress_bar.*
+import kotlinx.android.synthetic.main.fragment_guest.*
 import javax.inject.Inject
 
 
-class RecomendationDetailFragment @Inject constructor(val content: String?,  val genre: String?, val emotionsModel: EmotionsModel?) :
+class RecomendationDetailFragment @Inject constructor(val content: String?,  val emotionsList: List<EmoticonsModel>?, val genre: String?) :
     WhatToWhatchFragment<RecomendationDetailPresenter>(), IRecomendationDetailView {
 
     private lateinit var recommendationList: List<RecomendationModel>
@@ -27,12 +30,18 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
     override fun layout(): Int = R.layout.detail_fragment
 
     override fun init() {
+        val name = sharedPreferencesUtils.user?.let {
+            sharedPreferencesUtils.user?.name
+        }?:run{
+            sharedPreferencesUtils.name
+        }
+
         setToolbarData(
             ContextCompat.getDrawable(requireContext(), R.drawable.ic_hamburger),
-            sharedPreferencesUtils.name.toString()
+            name!!
         )
 
-        presenter.getRecomendations(content, genre, emotionsModel)
+        presenter.getRecomendations(content, emotionsList, genre)
         btAnother.setOnClickListener {
             if (position + 1 <= recommendationList.size - 1)
                 position++
@@ -67,6 +76,8 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
             if (ivLike.isSelected)
                 ivLike.isSelected = false
         }
+
+
 
     }
 
@@ -147,6 +158,24 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
 
         }?:run{
             ivNetflix.visibility = View.GONE
+        }
+
+        ivNetflix.setOnClickListener {
+            recomendationModel.netflix?.let {
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.setClassName(
+                        "com.netflix.mediaclient",
+                        "com.netflix.mediaclient.ui.launch.UIWebViewActivity"
+                    )
+                    intent.data = Uri.parse(it)
+                    startActivity(intent)
+                } catch (e: Exception) { // netflix app isn't installed, send to website.
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = Uri.parse(it)
+                    startActivity(intent)
+                }
+            }
         }
 
     }

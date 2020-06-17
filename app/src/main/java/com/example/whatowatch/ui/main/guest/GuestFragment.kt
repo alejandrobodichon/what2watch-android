@@ -24,7 +24,12 @@ class GuestFragment @Inject constructor(): WhatToWhatchFragment<WhatToWhatchPres
 
         btStart.setOnClickListener {
             if(tietName.text!!.isNotEmpty()){
-                sharedPreferencesUtils.user?.name = tietName.text.toString()
+                sharedPreferencesUtils.user?.let {
+                    sharedPreferencesUtils.user?.name = tietName.text.toString()
+                }?:run{
+                    sharedPreferencesUtils.name = tietName.text.toString()
+                }
+
                 (requireActivity()as MainActivity).manageFragmentsSlideAnimation(ContentSelectionFragment(false),null)
             } else {
                 showError("You must complete the name to continue.")

@@ -34,7 +34,12 @@ class EmoticonsFragment @Inject constructor(val content: String): WhatToWhatchFr
         }
 
         btRecommend.setOnClickListener {
-            (requireActivity() as MainActivity).manageFragmentsSlideAnimation( RecomendationDetailFragment(content,"comedy", null),null)
+            val emoticonList=  (rvEmoticon1.adapter as EmoticonsAdapter).getChecked()
+            if(emoticonList!!.isEmpty()){
+                showError("You must choose at least 1 emoticon.")
+            } else {
+                (requireActivity() as MainActivity).manageFragmentsSlideAnimation( RecomendationDetailFragment(content, emoticonList,null),null)
+            }
         }
     }
 }
