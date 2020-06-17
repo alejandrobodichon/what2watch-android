@@ -24,7 +24,7 @@ class RecomendationDetailPresenter @Inject constructor(private val retrofitServi
             genre != null && content!= null -> filter = "type:$content,genre:${genre}"
             genre == null ->
                 when(emoticonsList?.size){
-                    1 -> filter = "type:$content,emoid=${emoticonsList[0].id}"
+                    1 -> filter = "type:$content,emoid:${emoticonsList[0].id}"
                     2 -> filter = "type:$content,emoid:${emoticonsList[0].id};${emoticonsList[1].id}"
                     3 -> filter = "type:$content,emoid:${emoticonsList[0].id};${emoticonsList[1].id};${emoticonsList[2].id}"
                 }
