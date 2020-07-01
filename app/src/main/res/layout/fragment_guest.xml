@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="What To Watch?"
-            android:textColor="@color/gray_background"
+            android:textColor="@color/whatowatch_even_light_grey"
             android:textSize="@dimen/margin_30"
             style="@style/LatoRegular.LargeExtra.Black.Bold"/>
 

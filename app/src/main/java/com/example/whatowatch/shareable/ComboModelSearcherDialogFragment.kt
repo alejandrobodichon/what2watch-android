@@ -9,37 +9,37 @@ import android.content.DialogInterface
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.whatowatch.R
+import com.example.whatowatch.model.UserModel
 
 /**
  *
  */
 class ComboModelSearcherDialogFragment: DialogFragment() {
     private var callback: Callback? = null
-    //private var items: List<CityModel>? = null
+    private var items: List<UserModel>? = null
     private var svFilterComboModels: SearchView? = null
     private var rvComboModels: RecyclerView? = null
     private var comboModelAdapter: ComboModelsAdapter? = null
     private var title: String = ""
 
 
-//    fun newInstance(_items: List<CityModel>, _title: String,  _callback: Callback): ComboModelSearcherDialogFragment {
-//        val adFragment = ComboModelSearcherDialogFragment()
-//        adFragment.items = _items
-//        adFragment.callback = _callback
-//        adFragment.title = _title
-//        return adFragment
-//    }
+    fun newInstance(_items: List<UserModel>, _title: String, _callback: Callback): ComboModelSearcherDialogFragment {
+        val adFragment = ComboModelSearcherDialogFragment()
+        adFragment.items = _items
+        adFragment.callback = _callback
+        adFragment.title = _title
+        return adFragment
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val vRoot = activity!!.layoutInflater.inflate(R.layout.combo_model_searcher_dialog_fragment, null)
-        val builder = AlertDialog.Builder(activity)
+        val builder = AlertDialog.Builder(activity,AlertDialog.THEME_HOLO_DARK)
         builder.setView(vRoot)
-
         builder.setTitle(title)
         builder.setCancelable(false)
-        builder.setNegativeButton("Cancelar", DialogInterface.OnClickListener { dialog, _ ->
+        builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, _ ->
             svFilterComboModels?.clearFocus()
-            callback?.onResponseError("No hay elemento")
+            callback?.onResponseError("No elements")
             dialog.dismiss()
         })
 
@@ -48,13 +48,13 @@ class ComboModelSearcherDialogFragment: DialogFragment() {
         svFilterComboModels = vRoot.findViewById(R.id.svFilterComboModels)
 
         rvComboModels = vRoot.findViewById(R.id.rvComboModels)
-//        comboModelAdapter = ComboModelsAdapter(context!!,items!!,object : OnComboModelClick {
-//            override fun onClick(comboModel: CityModel) {
-//                svFilterComboModels?.clearFocus()
-//                callback?.onResponseOk(comboModel)
-//                dialog!!.dismiss()
-//            }
-//        })
+        comboModelAdapter = ComboModelsAdapter(context!!,items!!,object : OnComboModelClick {
+            override fun onClick(comboModel: UserModel) {
+                svFilterComboModels?.clearFocus()
+                callback?.onResponseOk(comboModel)
+                dialog!!.dismiss()
+            }
+        })
         rvComboModels?.adapter = comboModelAdapter
         rvComboModels?.layoutManager = LinearLayoutManager(requireContext())
 

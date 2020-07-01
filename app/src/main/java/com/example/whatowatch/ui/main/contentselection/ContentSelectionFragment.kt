@@ -42,7 +42,7 @@ class ContentSelectionFragment @Inject constructor(private val fromLogin: Boolea
                     )
                 else
                     (requireActivity() as MainActivity).manageFragmentsSlideAnimation(
-                        GenreSelectionFragment(it),
+                        EmoticonsFragment(it),
                         null
                     )
             } ?: run {

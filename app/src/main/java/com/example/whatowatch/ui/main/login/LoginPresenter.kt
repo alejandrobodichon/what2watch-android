@@ -4,6 +4,7 @@ import ar.com.wolox.wolmo.core.presenter.BasePresenter
 import ar.com.wolox.wolmo.networking.retrofit.RetrofitServices
 import com.example.whatowatch.model.UserModel
 import com.example.whatowatch.network.callback.AuthCallback
+import com.example.whatowatch.network.services.GetFriends
 import com.example.whatowatch.network.services.GetUser
 import com.example.whatowatch.utils.SharedPreferencesUtils
 import okhttp3.ResponseBody
@@ -20,7 +21,7 @@ class LoginPresenter @Inject constructor(private val retrofitServices: RetrofitS
             object : AuthCallback<List<UserModel>>(this) {
                 override fun onResponseSuccessful(response: List<UserModel>?) {
                     sharedPreferencesUtils.user = response!![0]
-                    view?.loginSuccessful()
+                    getFriends()
                     view?.hideProgressBar()
                 }
 
@@ -37,7 +38,29 @@ class LoginPresenter @Inject constructor(private val retrofitServices: RetrofitS
             })
     }
 
+    fun getFriends(){
+        view?.showProgressBar( )
+        retrofitServices.getService(GetFriends::class.java).getFriends(sharedPreferencesUtils.user?.id.toString()).enqueue(
+            object : AuthCallback<List<UserModel>>(this) {
+                override fun onResponseSuccessful(friends: List<UserModel>?) {
+                    sharedPreferencesUtils.friends = friends
+                    view?.loginSuccessful()
+                    view?.hideProgressBar()
+                }
 
+                override fun onResponseFailed(responseBody: ResponseBody?, code: Int) {
+                    view?.showError("Error retrieving users.")
+                    view?.hideProgressBar()
+                }
+
+                override fun onCallFailure(t: Throwable) {
+                    view?.showError("Connection error, please try again.")
+                    view?.hideProgressBar()
+                }
+
+            })
+
+    }
 
 
 

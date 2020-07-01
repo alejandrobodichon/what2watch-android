@@ -33,6 +33,8 @@ class EmoticonsFragment @Inject constructor(val content: String): WhatToWhatchFr
             it.submitList(emoticons1)
         }
 
+        tvTitle.text = "What kind of emotions are you expecting from this $content?"
+
         btRecommend.setOnClickListener {
             val emoticonList=  (rvEmoticon1.adapter as EmoticonsAdapter).getChecked()
             if(emoticonList!!.isEmpty()){

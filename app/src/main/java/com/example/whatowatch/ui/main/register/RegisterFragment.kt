@@ -68,7 +68,7 @@ class RegisterFragment @Inject constructor() : WhatToWhatchFragment<RegisterPres
             tietRepeatPassword.text.toString() != tietPassword.text.toString() -> showError("You need to put the same password.")
             !cbTerms.isChecked -> showError("You need to accept the terms and conditions.")
             else -> presenter.register(
-                UserModel(
+                UserModel(null,
                     tietName.text.toString(),
                     tietLastName.text.toString(),
                     tietUserName.text.toString(),
@@ -98,7 +98,7 @@ class RegisterFragment @Inject constructor() : WhatToWhatchFragment<RegisterPres
 
     override fun goBack() {
         showError("Successfully registered!")
-        (requireActivity() as MainActivity).backToFragmentPosition(1)
+        (requireActivity() as MainActivity).backToFragmentPosition(0)
     }
 
 }

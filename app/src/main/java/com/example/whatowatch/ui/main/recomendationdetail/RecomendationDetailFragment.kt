@@ -8,11 +8,14 @@ import android.text.SpannableString
 import android.text.style.StyleSpan
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.whatowatch.R
+import com.example.whatowatch.model.CommentModel
 import com.example.whatowatch.model.EmoticonsModel
 import com.example.whatowatch.model.EmotionsModel
 import com.example.whatowatch.model.RecomendationModel
+import com.example.whatowatch.shareable.CommentAdapter
 import com.example.whatowatch.shareable.WhatToWhatchFragment
 import com.example.whatowatch.ui.main.MainActivity
 import kotlinx.android.synthetic.main.detail_fragment.*
@@ -20,7 +23,11 @@ import kotlinx.android.synthetic.main.fragment_guest.*
 import javax.inject.Inject
 
 
-class RecomendationDetailFragment @Inject constructor(val content: String?,  val emotionsList: List<EmoticonsModel>?, val genre: String?) :
+class RecomendationDetailFragment @Inject constructor(
+    val content: String?,
+    val emotionsList: List<EmoticonsModel>?,
+    val genre: String?
+) :
     WhatToWhatchFragment<RecomendationDetailPresenter>(), IRecomendationDetailView {
 
     private lateinit var recommendationList: List<RecomendationModel>
@@ -31,10 +38,14 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
 
     override fun init() {
         val name = sharedPreferencesUtils.user?.let {
-            sharedPreferencesUtils.user?.name
-        }?:run{
+            sharedPreferencesUtils.user?.username
+        } ?: run {
             sharedPreferencesUtils.name
         }
+
+        if (sharedPreferencesUtils.isRegistered!!)
+            btComment.visibility = View.VISIBLE
+        else btComment.visibility = View.GONE
 
         setToolbarData(
             ContextCompat.getDrawable(requireContext(), R.drawable.ic_hamburger),
@@ -53,16 +64,34 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
                 ivDislike.isSelected = false
             if (ivLike.isSelected)
                 ivLike.isSelected = false
+
+            if (sharedPreferencesUtils.isRegistered!!) {
+                btComment.visibility = View.VISIBLE
+                btComment2.visibility = View.GONE
+                llComment.visibility = View.GONE
+            }
         }
 
         btRestart.setOnClickListener {
-            (requireActivity() as MainActivity).backToFragmentPosition(2)
+            (requireActivity() as MainActivity).backToFragmentPosition(1)
         }
 
         btComment.setOnClickListener {
             btComment.visibility = View.GONE
             btComment2.visibility = View.VISIBLE
-            etCommment.visibility = View.VISIBLE
+            llComment.visibility = View.VISIBLE
+            rvComments.layoutManager = LinearLayoutManager(requireContext())
+            rvComments.adapter = CommentAdapter(requireContext(), sharedPreferencesUtils).also {
+                val comments = listOf(
+                    CommentModel(9, "mCulen", "Very bad movie."),
+                    CommentModel(11, "eisarelli", "The film is so lovely."),
+                    CommentModel(12, "fquiros", "Best movie ever."),
+                    CommentModel(15, "grivero", "What a wonderful movie.")
+                )
+                it.submitList(comments)
+                it.notifyDataSetChanged()
+            }
+
         }
 
         ivLike.setOnClickListener {
@@ -76,7 +105,6 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
             if (ivLike.isSelected)
                 ivLike.isSelected = false
         }
-
 
 
     }
@@ -111,7 +139,7 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
                     Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
             }
-        recomendationModel.mainCast?.let{
+        recomendationModel.mainCast?.let {
             tvMainCast.text = SpannableString(
                 getString(
                     R.string.detail_main_cast,
@@ -142,21 +170,21 @@ class RecomendationDetailFragment @Inject constructor(val content: String?,  val
         }
 
         recomendationModel.amazon?.let {
-            if(recomendationModel.amazon == "N/A")
+            if (recomendationModel.amazon == "N/A")
                 ivAmazonPrime.visibility = View.GONE
             else
                 ivAmazonPrime.visibility = View.VISIBLE
-        }?:run{
+        } ?: run {
             ivAmazonPrime.visibility = View.GONE
         }
 
         recomendationModel.netflix?.let {
-            if(recomendationModel.netflix == "N/A")
+            if (recomendationModel.netflix == "N/A")
                 ivNetflix.visibility = View.GONE
             else
                 ivNetflix.visibility = View.VISIBLE
 
-        }?:run{
+        } ?: run {
             ivNetflix.visibility = View.GONE
         }
 

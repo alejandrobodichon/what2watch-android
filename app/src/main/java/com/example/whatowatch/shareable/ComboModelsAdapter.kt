@@ -10,17 +10,17 @@ import android.widget.Filterable
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.whatowatch.R
-import com.example.whatowatch.model.GenreModel
+import com.example.whatowatch.model.UserModel
 import java.util.ArrayList
 
 /**
  */
 class ComboModelsAdapter(private val context: Context,
-                         private var comboModels: List<GenreModel>,
+                         private var comboModels: List<UserModel>,
                          private val onItemClick: OnComboModelClick): RecyclerView.Adapter<ComboModelsAdapter.ViewHolder>(), Filterable {
 
-    private val lComboModels: MutableList<GenreModel> = ArrayList()
-    private var lComboModelsFiltered: MutableList<GenreModel> = ArrayList()
+    private val lComboModels: MutableList<UserModel> = ArrayList()
+    private var lComboModelsFiltered: MutableList<UserModel> = ArrayList()
     private var valueFilter = ValueFilter()
 
     init {
@@ -42,7 +42,7 @@ class ComboModelsAdapter(private val context: Context,
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val bItem = this.lComboModelsFiltered.get(position)
         holder.llComboModel.setOnClickListener {onItemClick.onClick(bItem) }
-        holder.tvDescription.text = bItem.name + " - " + bItem.name
+        holder.tvDescription.text = bItem.username
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -55,9 +55,9 @@ class ComboModelsAdapter(private val context: Context,
             val results = FilterResults()
             val sConstraint = constraint!!.toString().toLowerCase()
             if ( constraint.isNotEmpty() ) {
-                val filterList = ArrayList<GenreModel>()
+                val filterList = ArrayList<UserModel>()
                 for (model in lComboModels) {
-                    if (!model.name.isNullOrEmpty() && model.name?.toLowerCase().contains(sConstraint)) {
+                    if (!model.username.isNullOrEmpty() && model.username?.toLowerCase().contains(sConstraint)) {
                         filterList.add(model)
                     }
                 }
@@ -72,7 +72,7 @@ class ComboModelsAdapter(private val context: Context,
 
         override fun publishResults(constraint: CharSequence, results: FilterResults) {
             lComboModelsFiltered.clear()
-            lComboModelsFiltered.addAll(results.values as Collection<GenreModel>)
+            lComboModelsFiltered.addAll(results.values as Collection<UserModel>)
 
             notifyDataSetChanged()
         }

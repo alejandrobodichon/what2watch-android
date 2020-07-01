@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import ar.com.wolox.wolmo.core.activity.WolmoActivity
 import com.example.whatowatch.R
+import com.example.whatowatch.model.UserModel
 import com.example.whatowatch.ui.main.MainActivity
 import com.example.whatowatch.ui.main.login.LoginFragment
 import com.example.whatowatch.utils.SharedPreferencesUtils
@@ -26,6 +27,16 @@ class RootActivity : WolmoActivity() {
         // status bar is hidden, so hide that too if nece
         //ssary.
         actionBar?.hide()
+        sharedPreferencesUtils.isRegistered = false
+//        sharedPreferencesUtils.users = listOf(
+//            UserModel("Juan","Juan","Juan","Juan","Juan","Juan"),
+//            UserModel("Juan","Juan","Fernando","Juan","Juan","Juan"),
+//            UserModel("Juan","Juan","Alejandro","Juan","Juan","Juan"),
+//            UserModel("Juan","Juan","Esteban","Juan","Juan","Juan"),
+//            UserModel("Juan","Juan","Pablo","Juan","Juan","Juan"),
+//            UserModel("Juan","Juan","Maximiliano","Juan","Juan","Juan"),
+//            UserModel("Juan","Juan","Gonzalo","Juan","Juan","Juan")
+//        )
 
         object : CountDownTimer(3000, 1000) {
             override fun onTick(millisUntilFinished: Long) {

@@ -4,11 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/llComboModel"
+    android:background="@color/black_background"
     android:clickable="true"
     android:focusable="true"
     android:padding="10dp">
     <TextView
         android:id="@+id/tvComboModelDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/whatowatch_even_light_grey"
+        android:text="User"
+        android:textSize="@dimen/char_20"/>
 </LinearLayout>

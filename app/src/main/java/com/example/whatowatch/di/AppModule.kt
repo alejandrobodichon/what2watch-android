@@ -6,6 +6,7 @@ import com.example.whatowatch.ui.main.MainActivity
 import com.example.whatowatch.ui.main.contentselection.ContentSelectionFragment
 import com.example.whatowatch.ui.main.emoticons.EmoticonsFragment
 import com.example.whatowatch.ui.main.emotions.EmotionsFragment
+import com.example.whatowatch.ui.main.friends.FriendsFragment
 import com.example.whatowatch.ui.main.login.LoginFragment
 import com.example.whatowatch.ui.main.genreselection.GenreSelectionFragment
 import com.example.whatowatch.ui.main.guest.GuestFragment
@@ -56,4 +57,7 @@ abstract class AppModule {
 
     @ContributesAndroidInjector
     internal abstract fun emoticonsFragment(): EmoticonsFragment
+
+    @ContributesAndroidInjector
+    internal abstract fun friendsFragment(): FriendsFragment
 }

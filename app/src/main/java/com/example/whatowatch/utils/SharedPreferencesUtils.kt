@@ -35,25 +35,35 @@ class SharedPreferencesUtils @Inject constructor(
             sharedPreferencesManager.store(NAME, gson.toJson(name))
         }
 
-//    var cityModel2: CityModel?
-//        get() {
-//            val fieldJson = sharedPreferencesManager[KEY_CITY_2, null]
-//            val cityModelType = object : TypeToken<CityModel>() {}.type
-//            return gson.fromJson(fieldJson,cityModelType)
-//        }
-//        set(cityModel2) {
-//            sharedPreferencesManager.store(KEY_CITY_2, gson.toJson(cityModel2))
-//        }
+    var users: List<UserModel>?
+        get() {
+            val fieldJson = sharedPreferencesManager[USERS, null]
+            val cityModelType = object : TypeToken<List<UserModel>>() {}.type
+            return gson.fromJson(fieldJson,cityModelType)
+        }
+        set(users) {
+            sharedPreferencesManager.store(USERS, gson.toJson(users))
+        }
+
+    var friends: List<UserModel>?
+        get() {
+            val fieldJson = sharedPreferencesManager[FRIENDS, null]
+            val cityModelType = object : TypeToken<List<UserModel>>() {}.type
+            return gson.fromJson(fieldJson,cityModelType)
+        }
+        set(friends) {
+            sharedPreferencesManager.store(FRIENDS, gson.toJson(friends))
+        }
 //
-//    var cityModel3: CityModel?
-//        get() {
-//            val fieldJson = sharedPreferencesManager[KEY_CITY_3, null]
-//            val cityModelType = object : TypeToken<CityModel>() {}.type
-//            return gson.fromJson(fieldJson,cityModelType)
-//        }
-//        set(cityModel3) {
-//            sharedPreferencesManager.store(KEY_CITY_3, gson.toJson(cityModel3))
-//        }
+    var isRegistered: Boolean?
+        get() {
+            val fieldJson = sharedPreferencesManager[KEY_CITY_3, null]
+            val cityModelType = object : TypeToken<Boolean>() {}.type
+            return gson.fromJson(fieldJson,cityModelType)
+        }
+        set(isRegistered) {
+            sharedPreferencesManager.store(KEY_CITY_3, gson.toJson(isRegistered))
+        }
 //
 //    var cityModel4: CityModel?
 //        get() {
@@ -78,7 +88,8 @@ class SharedPreferencesUtils @Inject constructor(
     companion object {
         private const val NAME = "name"
         private const val USER = "user"
-        private const val KEY_CITY_1 = "key_city_1"
+        private const val USERS = "users"
+        private const val FRIENDS = "friends"
         private const val KEY_CITY_2 = "key_city_2"
         private const val KEY_CITY_3 = "key_city_3"
         private const val KEY_CITY_4 = "key_city_4"

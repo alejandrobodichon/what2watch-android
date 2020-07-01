@@ -5,6 +5,7 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.example.whatowatch.R
+import com.example.whatowatch.model.UserModel
 import com.example.whatowatch.shareable.WhatToWhatchFragment
 import com.example.whatowatch.shareable.WhatToWhatchPresenter
 import com.example.whatowatch.ui.main.MainActivity
@@ -24,11 +25,7 @@ class GuestFragment @Inject constructor(): WhatToWhatchFragment<WhatToWhatchPres
 
         btStart.setOnClickListener {
             if(tietName.text!!.isNotEmpty()){
-                sharedPreferencesUtils.user?.let {
-                    sharedPreferencesUtils.user?.name = tietName.text.toString()
-                }?:run{
-                    sharedPreferencesUtils.name = tietName.text.toString()
-                }
+                sharedPreferencesUtils.user = UserModel(null,"","",tietName.text.toString(),"","","")
 
                 (requireActivity()as MainActivity).manageFragmentsSlideAnimation(ContentSelectionFragment(false),null)
             } else {

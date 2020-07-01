@@ -20,6 +20,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.whatowatch.R
 import com.example.whatowatch.model.ToolbarItem
 import com.example.whatowatch.ui.main.MainActivity
+import com.example.whatowatch.ui.main.friends.FriendsFragment
 import com.example.whatowatch.utils.SharedPreferencesUtils
 import com.facebook.drawee.view.SimpleDraweeView
 import com.google.android.material.snackbar.Snackbar
@@ -82,14 +83,18 @@ abstract class WhatToWhatchFragment<T : BasePresenter<*>> : WolmoFragment<T>(), 
 
         actionBarDrawerToggle.drawerArrowDrawable.color =
             ContextCompat.getColor(requireContext(), R.color.whatowatch_blue_button)
+        requireActivity().vToolbarBaseNavView.bringToFront()
         setToolbarItems()
     }
 
     private fun setToolbarItems(){
+        requireActivity().tvLogout.setOnClickListener {
+            (requireActivity() as MainActivity).backToFragmentPosition(0)
+        }
         val toolbarItems = ArrayList<ToolbarItem>()
-//        toolbarItems.apply {
-//            add(ToolbarItem("Watch list",R.drawable.ic_list_24px))
-//        }
+        toolbarItems.apply {
+            add(ToolbarItem("Friends",R.drawable.ic_list_24px,0))
+        }
         requireActivity().vToobarBaseItemRecycler.layoutManager = LinearLayoutManager(requireContext())
         val toolbarItemsAdapter = ToolbarItemsAdapter(requireContext())
         requireActivity().vToobarBaseItemRecycler.adapter = toolbarItemsAdapter
@@ -97,7 +102,11 @@ abstract class WhatToWhatchFragment<T : BasePresenter<*>> : WolmoFragment<T>(), 
 
         toolbarItemsAdapter.setItemClickListener(object : ToolbarItemsAdapter.OnItemClickListener {
             override fun onItemClick(destination: Int) {
-                    requireActivity().vToolbarDrawer.closeDrawers()
+                when(destination){
+                    0 -> (requireActivity() as MainActivity).manageFragmentsSlideAnimation(FriendsFragment(),null)
+                    else -> requireActivity().vToolbarDrawer.closeDrawers()
+                }
+                requireActivity().vToolbarDrawer.closeDrawers()
             }
         })
     }

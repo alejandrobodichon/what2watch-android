@@ -37,12 +37,12 @@
                         <ImageView
                             android:id="@+id/ivImage"
                             android:layout_width="match_parent"
-                            android:layout_height="400dp"
+                            android:layout_height="500dp"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="120dp"
+                            android:layout_height="260dp"
                             android:background="@drawable/gradient_background_vertical"
                             android:orientation="horizontal"
                             app:layout_constraintBottom_toBottomOf="@id/ivImage"
@@ -52,10 +52,10 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
+                                android:layout_marginBottom="@dimen/margin_20"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                android:layout_marginBottom="@dimen/margin_20">
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent">
 
                                 <ImageView
                                     android:id="@+id/ivLike"
@@ -63,7 +63,8 @@
                                     android:layout_height="@dimen/margin_30"
                                     android:layout_gravity="center"
                                     android:layout_marginEnd="@dimen/margin_20"
-                                    android:src="@drawable/like_selector" />
+                                    android:src="@drawable/like_selector"
+                                    android:tint="@color/whatowatch_green" />
 
                                 <ImageView
                                     android:id="@+id/ivDislike"
@@ -71,7 +72,8 @@
                                     android:layout_height="@dimen/margin_30"
                                     android:layout_gravity="center"
                                     android:layout_marginStart="@dimen/margin_20"
-                                    android:src="@drawable/dislike_selector" />
+                                    android:src="@drawable/dislike_selector"
+                                    android:tint="@color/whatowatch_red" />
                             </LinearLayout>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -204,19 +206,55 @@
                             android:text="Comment"
                             app:layout_constraintTop_toBottomOf="@id/tvDirector" />
 
-                        <EditText
-                            android:id="@+id/etCommment"
+                        <LinearLayout
+                            android:id="@+id/llComment"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/margin_100"
-                            android:layout_marginHorizontal="14dp"
-                            android:layout_marginTop="@dimen/margin_8"
-                            android:background="@drawable/view_rounded_corners_gray"
-                            android:gravity="top"
-                            android:hint="Comments..."
-                            android:padding="@dimen/margin_8"
-                            android:textColor="@color/whatowatch_even_light_grey"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
                             android:visibility="gone"
-                            app:layout_constraintTop_toBottomOf="@id/btComment" />
+                            tools:visibility="visible"
+                            android:layout_marginTop="@dimen/margin_8"
+                            app:layout_constraintTop_toBottomOf="@id/btComment">
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/whatowatch_grey"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Comments"
+                                android:layout_marginHorizontal="@dimen/margin_8"
+                                android:textColor="@color/whatowatch_even_light_grey"
+                                android:layout_marginVertical="@dimen/margin_8"
+                                android:textSize="18sp"
+                                android:textStyle="bold"/>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvComments"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginHorizontal="@dimen/margin_8"
+                                android:orientation="vertical"
+                                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                                tools:itemCount="2"
+                                tools:listitem="@layout/adapter_item_comment" />
+
+                            <EditText
+                                android:id="@+id/etCommment"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/margin_100"
+                                android:layout_marginHorizontal="14dp"
+                                android:layout_marginTop="@dimen/margin_8"
+                                android:background="@drawable/view_rounded_corners_gray"
+                                android:gravity="top"
+                                android:hint="Comments..."
+                                android:padding="@dimen/margin_8"
+                                android:textColor="@color/whatowatch_even_light_grey"
+                                tools:visibility="visible"
+                                 />
+                        </LinearLayout>
 
                         <Button
                             android:id="@+id/btComment2"
@@ -227,7 +265,7 @@
                             android:layout_marginTop="@dimen/margin_8"
                             android:text="Comment"
                             android:visibility="gone"
-                            app:layout_constraintTop_toBottomOf="@id/etCommment" />
+                            app:layout_constraintTop_toBottomOf="@id/llComment" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.main.MainActivity"
+    >
+   <ImageView
+       android:id="@+id/ivBackground"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:adjustViewBounds="true"
+       android:scaleType="fitXY"
+       android:foreground="@color/whatowatch_transparent_grey"/>
+   <EditText
+       android:id="@+id/etSearchFriends"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/margin_20"
+       android:layout_margin="@dimen/margin_20"
+       android:textColor="@color/whatowatch_even_light_grey"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       android:hint="Search friends..."
+       />
+   <Button
+       android:id="@+id/btAddFriend"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Add friend"
+       style="@style/WhatToWatchButton"
+       android:layout_margin="@dimen/margin_20"
+       app:layout_constraintTop_toBottomOf="@+id/etSearchFriends"
+       />
+
+   <TextView
+       android:id="@+id/tvTitle"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Friends"
+       android:textSize="30sp"
+       android:textStyle="bold"
+       android:layout_marginStart="@dimen/margin_20"
+       android:layout_marginTop="@dimen/margin_20"
+       app:layout_constraintStart_toStartOf="parent"
+       android:textColor="@color/whatowatch_even_light_grey"
+       app:layout_constraintTop_toBottomOf="@id/btAddFriend"/>
+
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/rvFriends"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_marginHorizontal="@dimen/margin_20"
+       tools:itemCount="3"
+       android:orientation="horizontal"
+       android:layout_gravity="center_horizontal"
+       app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+       tools:listitem="@layout/adapter_item_friend"
+       app:layout_constraintTop_toBottomOf="@id/tvTitle"
+       app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

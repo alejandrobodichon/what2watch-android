@@ -30,6 +30,7 @@ class LoginFragment @Inject constructor() : WhatToWhatchFragment<LoginPresenter>
         }
 
         vGuestButton.setOnClickListener {
+            sharedPreferencesUtils.isRegistered = false
             (requireActivity() as MainActivity).manageFragmentsSlideAnimation(GuestFragment(),null)
         }
 
@@ -55,6 +56,7 @@ class LoginFragment @Inject constructor() : WhatToWhatchFragment<LoginPresenter>
 
     override fun loginSuccessful() {
         sharedPreferencesUtils.name = vLoginUserInputEditText.text.toString()
+        sharedPreferencesUtils.isRegistered = true
         (requireActivity() as MainActivity).manageFragmentsSlideAnimation(WelcomeFragment(),null)
     }
 }
